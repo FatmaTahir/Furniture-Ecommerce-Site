@@ -6,48 +6,244 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FURNITUR - Your Furniture Interior</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <ul class="nav-item">
-                <li class="nav-logo">
-                    <img src="assets/logo.svg" alt="" srcset="">
-                </li>
-                <li>
-                    <div class="search-bar">
-                    <input placeholder="Furniture" type="text" />
-                </li>
-    
-                <ul class="nav-items-text">
-                    <li class="nv">
-                        HOME
-                    </li>
-                    <li class="nv">
-                        SHOP
-                    </li>
-                    <li class="nv">
-                        BLOG
-                    </li>
-                    <li class="nv">
-                       ABOUT US
-                    </li>
-                </ul>
-
-                <ul class="nav-items-right">
-                    <li class="nv">
-                        LOVE
-                    </li>
-                    <li class="nv">
-                          CART
-                    </li>
-                </ul>
-             </ul>
-                
-            
+   <header>
+    <div class="navbar">
+        <!-- Left: Logo -->
+        <div class="nav-logo">
+            <img src="assets/logo.svg" alt="FURNITUR Logo">
         </div>
-    </header>
+
+        <!-- Left-Center: Search Input -->
+        <div class="search-bar">
+            <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+            <input type="text" placeholder="Search something">
+        </div>
+
+        <!-- Center: Navigation Links -->
+        <ul class="nav-items-text">
+            <li><a href="#">HOME</a></li>
+            <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">ABOUT US</a></li>
+        </ul>
+
+        <!-- Right: Actions -->
+        <ul class="nav-items-right">
+            <li class="nav-item-link">
+                <img src="assets/heart-icon.svg" alt="Love">
+                <span>LOVE</span>
+            </li>
+            <li class="nav-item-link">
+                <img src="assets/cart-icon.svg" alt="Cart">
+                <span>CART</span>
+            </li>
+        </ul>
+    </div>
+</header>
+    <main>
+        <div class="main-text">
+            <h6>WELCOME TO OUR</h6>
+            <h1>FURNITURE <br> GALLERY</h1>
+            <img src="line.svg" alt="" srcset="">
+            <h6>BROWSE OUR SELECTIONS</h6>
+            <p>
+                Featuring sleek designs and innovative materials that <br> seamlessly
+                blend form and function
+            </p>
+        </div>
+    </main>
+    <section>
+        <div class="banners">
+            <img src="assets/banner.svg" alt="" srcset="">
+            <img src="assets/banner-2.svg" alt="" srcset="">
+            <img src="assets/banner-3.svg" alt="" srcset="">
+
+        </div>
+    </section>
+    <section>
+        <div class="trusted-by">
+            <h4>TRUSTED BY</h4>
+        </div>
+        <div class="trust-logos">
+            <img src="assets/brand-logo-1.svg" alt="" srcset="">
+            <img src="assets/brand-logo-2.svg" alt="" srcset="">
+            <img src="assets/brand-logo-3.svg" alt="" srcset="">
+            <img src="assets/brand-logo-4.svg" alt="" srcset="">
+            <img src="assets/brand-logo-5.svg" alt="" srcset="">
+            <img src="assets/brand-logo-6.svg" alt="" srcset="">
+        </div>
+        <div class="trust-logos-reverse">
+            <img src="assets/brand-logo-6.svg" alt="" srcset="">
+            <img src="assets/brand-logo-5.svg" alt="" srcset="">
+            <img src="assets/brand-logo-4.svg" alt="" srcset="">
+            <img src="assets/brand-logo-3.svg" alt="" srcset="">
+            <img src="assets/brand-logo-2.svg" alt="" srcset="">
+            <img src="assets/brand-logo-1.svg" alt="" srcset="">
+        </div>
+    </section>
+    <section>
+        <div class="products">
+            <div class="products-text">
+                <h4>FEATURED PRODUCTS</h4>
+            </div>
+            <div class="categories">
+                <button class="category-btn" data-category="all">ALL</button>
+                <button class="category-btn" data-category="chairs">ON SALE</button>
+                <button class="category-btn" data-category="lights">SOFA</button>
+                <button class="category-btn" data-category="tables">HANGING LIGHT</button>
+            </div>
+            <div class="product-container">
+
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="choose-text">
+            <h4>WHY CHOOSE US</h4>
+        </div>
+        <div class="why-choose-us">
+            <img src="assets/why-1.svg" alt="" srcset="">
+            <img src="assets/why-2.svg" alt="" srcset="">
+            <img src="assets/why-3.svg" alt="" srcset="">
+        </div>
+        <div class="why-choose-us-reverse">
+            <img src="assets/why-4.svg" alt="" srcset="">
+            <img src="assets/why-5.svg" alt="" srcset="">
+            <img src="assets/why-6.svg" alt="" srcset="">
+        </div>
+    </section>
+<section class="promo-banner-section">
+    <div class="promo-banner">
+        <div class="promo-left">
+            <h2>MORDERN BRONZE<br>HANGING LIGHT</h2>
+            <div class="promo-rating">
+                <img src="assets/rating.svg" alt="Rating">
+            </div>
+            <div class="promo-price-box">
+                <span class="old-price">$3360.44</span>
+                <div class="price-discount-row">
+                    <span class="current-price">$2352.41</span>
+                    <span class="discount-badge">-30%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="promo-center">
+            <img src="assets/modern-broze-hanging-light-img.svg" alt="Modern Bronze Hanging Light">
+        </div>
+
+        <div class="promo-right">
+            <p>
+                Stunning lighting fixture that combines contemporary style with timeless elegance.
+                Featuring a sleek and minimalist design, this hanging light is crafted from high-quality bronze
+                and finished with a smooth and lustrous surface.
+            </p>
+            <button class="buy-now-btn">BUY NOW</button>
+        </div>
+    </div>
+</section>
+
+<section class="reviews-section">
+    <div class="reviews-header">
+        <h2>REVIEWED BY CUSTOMERS</h2>
+        <p>WHAT OUR CUSTOMERS THINK ABOUT US</p>
+    </div>
+
+    <div class="reviews-container">
+        <div class="review-card side-review">
+            <p>
+                ...century modern armchair! The fine leather upholstery is incredibly soft and smooth, 
+                and it can be easily incorporated into...
+            </p>
+        </div>
+        <div class="review-card main-review">
+            <div class="avatar-wrapper">
+                <img src="assets/review-icon.svg" alt="Customer Photo">
+            </div>
+            <div class="review-stars">
+                <img src="assets/rating.svg" alt="5 Stars">
+            </div>
+            <p class="review-text">
+                "The sofa is not only incredibly stylish, but also very comfortable to lounge on. The clean 
+                lines and minimalist design make it a perfect fit for my modern living room, and the 
+                neutral color scheme allows me to easily incorporate other accent pieces. The sofa is also 
+                very sturdy and well-constructed, so I know it will last me for years to come."
+            </p>
+        </div>
+        <div class="review-card side-review">
+            <p>
+                Vintage feel that is sure to impress. With ample space for family members, and high 
+                quality materials used in its construction...
+            </p>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="footer-container">
+        
+        <!-- Top Links Grid -->
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>CUSTOMER SERVICE</h4>
+                <ul>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Customs and Taxes</a></li>
+                    <li><a href="#">Customers's Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">About Japan with love</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Special Deals & Offers</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>HELP CENTER</h4>
+                <ul>
+                    <li><a href="#">Order Information</a></li>
+                    <li><a href="#">Shipping Options</a></li>
+                    <li><a href="#">International Shipping</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>RETURN & WARRANTY</h4>
+                <ul>
+                    <li><a href="#">Returns & Exchange Policy</a></li>
+                    <li><a href="#">Returns Center</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">Warranty Registration</a></li>
+                    <li><a href="#">Warranty Repair Center</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Divider Line -->
+        <hr class="footer-divider">
+
+        <!-- Bottom Copyright Row -->
+        <div class="footer-bottom">
+            <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+            <div class="footer-socials">
+                <img src="assets/footer-logos.svg" alt="Social Media Links">
+            </div>
+        </div>
+
+    </div>
+</footer>
 </body>
 
 </html>
