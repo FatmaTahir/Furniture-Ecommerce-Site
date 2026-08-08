@@ -35,7 +35,7 @@ function displaySearchProducts(items) {
     `).join("");
 }
 
-displaySearchProducts(products);
+// ===== Accordion toggles =====
 const accordionHeaders = document.querySelectorAll(".accordion-header");
 
 accordionHeaders.forEach(header => {
@@ -49,6 +49,7 @@ accordionHeaders.forEach(header => {
     });
 });
 
+// ===== Shared filter + sort state =====
 const activeFilters = {
     category: null,
     material: null,
@@ -57,8 +58,62 @@ const activeFilters = {
     maxPrice: 2700
 };
 
-let sortMode = "default"; 
+let sortMode = "default";
 
+// ===== Pagination state =====
+let currentPage = 1;
+const itemsPerPage = 3;
+let currentFilteredList = products;
+
+const pageNumbersContainer = document.getElementById("pageNumbers");
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+
+function renderPagination() {
+    const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
+
+    pageNumbersContainer.innerHTML = "";
+
+    for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.className = "page-btn" + (i === currentPage ? " active" : "");
+        btn.textContent = String(i).padStart(2, "0");
+        btn.addEventListener("click", () => {
+            currentPage = i;
+            renderPage();
+        });
+        pageNumbersContainer.appendChild(btn);
+    }
+
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+}
+
+function renderPage() {
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const pageItems = currentFilteredList.slice(start, end);
+
+    displaySearchProducts(pageItems);
+    renderPagination();
+}
+
+prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+    }
+});
+
+nextBtn.addEventListener("click", () => {
+    const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderPage();
+    }
+});
+
+// ===== Main filter/sort pipeline =====
 function applyFilters() {
     let filtered = products.filter(product => {
         if (activeFilters.category && product.category !== activeFilters.category) return false;
@@ -75,9 +130,12 @@ function applyFilters() {
         filtered = filtered.slice().sort((a, b) => getPriceNumber(b.price) - getPriceNumber(a.price));
     }
 
-    displaySearchProducts(filtered);
+    currentFilteredList = filtered;
+    currentPage = 1; // reset to page 1 whenever filters/sort change
+    renderPage();
 }
 
+// ===== Category buttons =====
 const searchbtns = document.querySelectorAll(".searchCategory-btn");
 
 searchbtns.forEach(btn => {
@@ -98,6 +156,7 @@ searchbtns.forEach(btn => {
     });
 });
 
+// ===== Materials filter =====
 const materialList = document.querySelector(".material-list");
 const materialLis = materialList.querySelectorAll("li");
 
@@ -120,6 +179,7 @@ materialLis.forEach(li => {
     });
 });
 
+// ===== Size filter =====
 const sizeList = document.querySelector(".size-list");
 const sizeLis = sizeList.querySelectorAll("li");
 
@@ -141,6 +201,8 @@ sizeLis.forEach(li => {
         applyFilters();
     });
 });
+
+// ===== On Sale badge =====
 const onSaleBadge = document.querySelector(".badge-on-sale");
 
 onSaleBadge.style.cursor = "pointer";
@@ -149,6 +211,8 @@ onSaleBadge.addEventListener("click", () => {
     onSaleBadge.classList.toggle("active");
     applyFilters();
 });
+
+// ===== Price range slider =====
 const priceRange = document.getElementById("priceRange");
 const priceLabel = document.getElementById("priceLabel");
 const btnApply = document.querySelector(".btn-apply");
@@ -161,6 +225,8 @@ btnApply.addEventListener("click", () => {
     activeFilters.maxPrice = Number(priceRange.value);
     applyFilters();
 });
+
+// ===== Sort dropdown =====
 const sortDropdown = document.querySelector(".sort-dropdown");
 const sortLabel = document.getElementById("sortLabel");
 const sortMenuItems = document.querySelectorAll(".sort-menu li");
@@ -192,6 +258,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
+// ===== Grid / List view toggle =====
 const btnViewGrid = document.querySelector(".btn-view-grid");
 const btnViewList = document.querySelector(".btn-view-list");
 
@@ -206,3 +273,6 @@ btnViewList.addEventListener("click", () => {
     btnViewGrid.classList.remove("active");
     searchGrid.classList.add("list-view");
 });
+
+// ===== Initial render =====
+applyFilters();
