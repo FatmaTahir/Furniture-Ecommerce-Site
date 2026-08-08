@@ -217,7 +217,7 @@ main {
     margin-bottom: 40px;
 }
 
-.category-btn {
+.category-btn , .searchCategory-btn{
     border: none;
     background: transparent;
     font-size: 11px;
@@ -560,4 +560,261 @@ footer {
     height: 14px;
     width: auto;
     display: block;
+}
+/* ================= SEARCH RESULTS PAGE ================= */
+.search-results-page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 40px 80px 40px;
+}
+
+/* Breadcrumb */
+.breadcrumb-container {
+    margin-bottom: 30px;
+}
+
+.breadcrumb {
+    font-size: 11px;
+    color: #999999;
+    font-weight: 500;
+}
+
+.breadcrumb span {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+/* Layout Grid */
+.search-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* ================= LEFT SIDEBAR ================= */
+.sidebar-filters {
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.filter-group {
+    margin-bottom: 35px;
+}
+
+.filter-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-accordion {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 12px 0;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.accordion-header .icon {
+    font-size: 14px;
+    color: #888888;
+}
+
+.accordion-list {
+    list-style: none;
+    padding-top: 10px;
+}
+
+.accordion-list li {
+    margin-bottom: 8px;
+}
+
+.accordion-list li a {
+    text-decoration: none;
+    font-size: 11px;
+    color: #888888;
+    transition: color 0.2s ease;
+}
+
+.accordion-list li a:hover {
+    color: #000000;
+}
+
+.filter-count-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #888888;
+}
+
+.filter-count-list .count {
+    color: #bbbbbb;
+}
+
+/* Price Slider Component */
+.price-slider-box {
+    padding-top: 15px;
+}
+
+.price-track {
+    width: 100%;
+    height: 3px;
+    background-color: #1a1a1a;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.price-inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #666666;
+}
+
+.btn-apply {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    padding: 4px 12px;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.compare-desc {
+    font-size: 10px;
+    color: #999999;
+    line-height: 1.5;
+    padding-top: 8px;
+}
+
+/* ================= RIGHT RESULTS CONTENT ================= */
+.results-content {
+    flex-grow: 1;
+}
+
+.result-heading {
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+/* Toolbar Controls */
+.results-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.badge-on-sale {
+    background-color: #e52e2e;
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 14px;
+    letter-spacing: 0.5px;
+}
+
+.sort-dropdown {
+    background-color: #f7f7f7;
+    padding: 6px 14px;
+    font-size: 11px;
+    color: #666666;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.sort-dropdown strong {
+    color: #1a1a1a;
+}
+
+.view-toggles {
+    display: flex;
+    gap: 4px;
+}
+
+.view-toggles button {
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    color: #888888;
+}
+
+.view-toggles button.active {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+.toolbar-right .results-count {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #888888;
+}
+
+/* Override product grid column width inside Search Page */
+.product-container.search-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 100%;
+    padding: 0;
+}
+/* ================= OVERRIDE / RESET FOR SEARCH PAGE ================= */
+.search-page-body {
+    background-color: #ffffff;
+}
+
+/* Explicitly remove the hero background from main on search page */
+main.search-page-main {
+    background-image: none !important;
+    background-color: #ffffff;
+    height: auto !important;
+    min-height: 100vh;
+    padding: 20px 40px 80px 40px;
+    display: block !important;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Product grid overrides */
+.search-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
 }

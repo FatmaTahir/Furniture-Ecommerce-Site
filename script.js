@@ -1,4 +1,4 @@
-const products = [
+const featuredProducts = [
     { id: "1", name: "URBAN LUX HIGH CHAIR", price: "$2668.15", img: "assets/products/p-1.svg", rating: "assets/rating.svg", category: "SOFA" },
     { id: "2", name: "MORDERN BLACK HANGING LIGHT", price: "$1595.60", img: "assets/products/p-2.svg", rating: "assets/rating.svg", category: "HANGING LIGHT" },
     { id: "3", name: "METRO FUSION TABLE", price: "$2238.30", img: "assets/products/p-3.svg", rating: "assets/rating.svg", category: "ON SALE" },
@@ -24,10 +24,8 @@ function displayProducts(items) {
     `).join('');
 }
 
-// Initial display
-displayProducts(products);
+displayProducts(featuredProducts);
 
-// Category filtering logic with Active tab toggling
 const btns = document.querySelectorAll(".category-btn");
 btns.forEach(btn => {
     btn.addEventListener("click", (e) => {
@@ -36,10 +34,14 @@ btns.forEach(btn => {
 
         const category = e.target.innerText.trim();
         if (category === "ALL") {
-            displayProducts(products);
+            displayProducts(featuredProducts);
         } else {
-            const filteredProducts = products.filter(product => product.category === category);
+            const filteredProducts = featuredProducts.filter(product => product.category === category);
             displayProducts(filteredProducts);
         }
     });
 });
+
+
+
+

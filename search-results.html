@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script-2.js" defer></script>
+</head>
+
+<body class="search-page-body">
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <img src="assets/logo.svg" alt="FURNITUR Logo">
+            </div>
+            <div class="search-bar">
+                <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+                <input type="text" placeholder="Furniture">
+            </div>
+
+            <ul class="nav-items-text">
+                <li><a href="#">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <img src="assets/cart-icon.svg" alt="Cart">
+                    <span>CART</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="search-page-main">
+        <div class="breadcrumb-container">
+            <p class="breadcrumb">Home > <span>Furniture</span></p>
+        </div>
+
+        <div class="search-layout">
+            <aside class="sidebar-filters">
+                <div class="filter-group">
+                    <h3 class="filter-title">CATEGORY</h3>
+
+                    <div class="filter-accordion open">
+                        <div class="accordion-header">
+                            <span>FURNITURE</span>
+                            <span class="icon">-</span>
+                        </div>
+                        <ul class="accordion-list">
+                            <li><button class="searchCategory-btn">Chair</button></li>
+                            <li><button class="searchCategory-btn">Sofa</button></li>
+                            <li><button class="searchCategory-btn">Couch</button></li>
+                            <li><button class="searchCategory-btn">Desk</button></li>
+                            <li><button class="searchCategory-btn">Lamp</button></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-accordion">
+                        <div class="accordion-header">
+                            <span>SHIPPING</span>
+                            <span class="icon">+</span>
+                        </div>
+                    </div>
+
+                    <div class="filter-accordion">
+                        <div class="accordion-header">
+                            <span>ALL PRODUCT</span>
+                            <span class="icon">+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h3 class="filter-title">SHOP BY</h3>
+
+                    <div class="filter-accordion open">
+                        <div class="accordion-header">
+                            <span>MATERIALS</span>
+                            <span class="icon">-</span>
+                        </div>
+                        <ul class="accordion-list filter-count-list">
+                            <li><span>Bronze</span><span class="count">(08)</span></li>
+                            <li><span>Oak wood</span><span class="count">(12)</span></li>
+                            <li><span>Stainless metal</span><span class="count">(36)</span></li>
+                            <li><span>Titanium</span><span class="count">(04)</span></li>
+                            <li><span>Alloy</span><span class="count">(08)</span></li>
+                            <li><span>Ceramic</span><span class="count">(17)</span></li>
+                        </ul>
+                    </div>
+                    <div class="filter-accordion open">
+                        <div class="accordion-header">
+                            <span>PRICE</span>
+                            <span class="icon">-</span>
+                        </div>
+                        <div class="price-slider-box">
+                            <div class="price-track"></div>
+                            <div class="price-inputs">
+                                <span class="price-label">$0 - $2000</span>
+                                <button class="btn-apply">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-accordion">
+                        <div class="accordion-header">
+                            <span>ALL PRODUCT</span>
+                            <span class="icon">+</span>
+                        </div>
+                    </div>
+
+                    <div class="filter-accordion open">
+                        <div class="accordion-header">
+                            <span>SIZE</span>
+                            <span class="icon">-</span>
+                        </div>
+                        <ul class="accordion-list filter-count-list">
+                            <li><span>S</span><span class="count">(08)</span></li>
+                            <li><span>M</span><span class="count">(12)</span></li>
+                            <li><span>L</span><span class="count">(36)</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="filter-accordion open">
+                        <div class="accordion-header">
+                            <span>COMPARE</span>
+                        </div>
+                        <p class="compare-desc">
+                            Lorem ipsum dolor sit amet consectetur. Bibendum iaculis velit dolor id.
+                        </p>
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <section class="results-content">
+
+                <h2 class="result-heading">RESULT FOR “ FURNITURE ”</h2>
+
+                <!-- TOOLBAR -->
+                <div class="results-toolbar">
+                    <div class="toolbar-left">
+                        <span class="badge-on-sale">ON SALE</span>
+
+                        <div class="sort-dropdown">
+                            <span>Short by: <strong>Default</strong></span>
+                            <span class="arrow-icon">▾</span>
+                        </div>
+
+                        <div class="view-toggles">
+                            <button class="btn-view-list">≡</button>
+                            <button class="btn-view-grid active">:::</button>
+                        </div>
+                    </div>
+
+                    <div class="toolbar-right">
+                        <span class="results-count">SHOWED 1 - 9 OF 30 PRODUCTS</span>
+                    </div>
+                </div>
+
+                <!-- PRODUCTS GRID -->
+                <div class="search-grid">
+
+                   
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
