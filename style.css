@@ -818,3 +818,120 @@ main.search-page-main {
     gap: 24px;
     width: 100%;
 }
+.filter-accordion .accordion-list,
+.filter-accordion .price-slider-box {
+    display: none;
+}
+
+.filter-accordion.open .accordion-list,
+.filter-accordion.open .price-slider-box {
+    display: block;
+}
+.filter-count-list li.active span:first-child,
+.badge-on-sale.active {
+    color: #000000;
+    font-weight: 700;
+}
+/* Fix sidebar category list — no underline, plain text like the design */
+.searchCategory-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-bottom: none !important;
+    padding: 3px 0;
+}
+
+.searchCategory-btn.active,
+.searchCategory-btn:hover {
+    color: #1a1a1a;
+    font-weight: 700;
+    border-bottom: none !important;
+}
+
+/* Functional price range slider with visible thumb */
+.price-range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: #1a1a1a;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.price-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    cursor: pointer;
+}
+
+.price-range::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    border: none;
+    cursor: pointer;
+}
+
+/* List view (toggled by the ≡ button) */
+.search-grid.list-view {
+    grid-template-columns: 1fr;
+}
+
+.search-grid.list-view .card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    gap: 24px;
+}
+
+.search-grid.list-view .card-img-wrapper {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+/* Sort dropdown menu */
+.sort-dropdown {
+    position: relative;
+}
+
+.sort-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    list-style: none;
+    min-width: 180px;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.sort-dropdown.menu-open .sort-menu {
+    display: block;
+}
+
+.sort-menu li {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #666666;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.sort-menu li:hover {
+    background: #f7f7f7;
+    color: #1a1a1a;
+}
+
+.sort-menu li.active {
+    color: #1a1a1a;
+    font-weight: 700;
+}
