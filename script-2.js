@@ -7,7 +7,10 @@ const products = [
     { id: "6", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-6.svg", rating: "assets/rating.svg", category: "Lamp", material: "Ceramic", size: "S" },
     { id: "7", name: "LUMIN DESK LAMP", price: "$1477.80", img: "assets/products/p-4.svg", rating: "assets/rating.svg", category: "Sofa", material: "Bronze", size: "L", onSale: "true" },
     { id: "8", name: "TIMELESS EDGE HANGING CLOCK", price: "$1071.60", img: "assets/products/p-5.svg", rating: "assets/rating.svg", category: "Chair", material: "Oak wood", size: "M" },
-    { id: "9", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-6.svg", rating: "assets/rating.svg", category: "Couch", material: "Ceramic", size: "L" }
+    { id: "9", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-6.svg", rating: "assets/rating.svg", category: "Couch", material: "Ceramic", size: "L" },
+    { id: "10", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-7.svg", rating: "assets/rating.svg", category: "Couch", material: "Ceramic", size: "L" },
+    { id: "11", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-8.svg", rating: "assets/rating.svg", category: "Couch", material: "Ceramic", size: "L" },
+    { id: "12", name: "ZENITH PENDANT LIGHT", price: "$2069.59", img: "assets/products/p-9.svg", rating: "assets/rating.svg", category: "Couch", material: "Ceramic", size: "L" }
 ];
 
 const searchGrid = document.querySelector(".search-grid");
@@ -17,22 +20,33 @@ function getPriceNumber(priceStr) {
 }
 
 function displaySearchProducts(items) {
+    function displaySearchProducts(items) {
+         console.log("🔥 NEW displaySearchProducts is running");
     searchGrid.innerHTML = items.map(product => `
-        <div class="card">
-            <div class="card-img-wrapper">
-                <img src="${product.img}" alt="${product.name}">
+        <a href="product-detail.html?id=${product.id}" 
+           class="card-link">
+
+            <div class="card">
+                <div class="card-img-wrapper">
+                    <img src="${product.img}" alt="${product.name}">
+                </div>
+
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+
+                <div class="rating">
+                    <img src="${product.rating}" alt="Rating">
+                </div>
+
+                <h4 class="product-price">
+                    ${product.price}
+                </h4>
             </div>
-            <h3 class="product-name">
-                ${product.name}
-            </h3>
-            <div class="rating">
-                <img src="${product.rating}" alt="Rating">
-            </div>
-            <h4 class="product-price">
-                ${product.price}
-            </h4>
-        </div>
+
+        </a>
     `).join("");
+}
 }
 
 // ===== Accordion toggles =====
@@ -85,8 +99,8 @@ function renderPagination() {
         pageNumbersContainer.appendChild(btn);
     }
 
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
+    if (prevBtn) prevBtn.disabled = currentPage === 1;
+    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
 }
 
 function renderPage() {
@@ -98,20 +112,24 @@ function renderPage() {
     renderPagination();
 }
 
-prevBtn.addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        renderPage();
-    }
-});
+if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPage();
+        }
+    });
+}
 
-nextBtn.addEventListener("click", () => {
-    const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
-    if (currentPage < totalPages) {
-        currentPage++;
-        renderPage();
-    }
-});
+if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+        const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderPage();
+        }
+    });
+}
 
 // ===== Main filter/sort pipeline =====
 function applyFilters() {
@@ -131,7 +149,7 @@ function applyFilters() {
     }
 
     currentFilteredList = filtered;
-    currentPage = 1; // reset to page 1 whenever filters/sort change
+    currentPage = 1; 
     renderPage();
 }
 
@@ -158,73 +176,80 @@ searchbtns.forEach(btn => {
 
 // ===== Materials filter =====
 const materialList = document.querySelector(".material-list");
-const materialLis = materialList.querySelectorAll("li");
+if (materialList) {
+    const materialLis = materialList.querySelectorAll("li");
+    materialLis.forEach(li => {
+        li.style.cursor = "pointer";
+        li.addEventListener("click", () => {
+            const value = li.querySelector("span:first-child").textContent.trim();
+            const isAlreadyActive = li.classList.contains("active");
 
-materialLis.forEach(li => {
-    li.style.cursor = "pointer";
-    li.addEventListener("click", () => {
-        const value = li.querySelector("span:first-child").textContent.trim();
-        const isAlreadyActive = li.classList.contains("active");
+            materialLis.forEach(l => l.classList.remove("active"));
 
-        materialLis.forEach(l => l.classList.remove("active"));
+            if (isAlreadyActive) {
+                activeFilters.material = null;
+            } else {
+                li.classList.add("active");
+                activeFilters.material = value;
+            }
 
-        if (isAlreadyActive) {
-            activeFilters.material = null;
-        } else {
-            li.classList.add("active");
-            activeFilters.material = value;
-        }
-
-        applyFilters();
+            applyFilters();
+        });
     });
-});
+}
 
 // ===== Size filter =====
 const sizeList = document.querySelector(".size-list");
-const sizeLis = sizeList.querySelectorAll("li");
+if (sizeList) {
+    const sizeLis = sizeList.querySelectorAll("li");
+    sizeLis.forEach(li => {
+        li.style.cursor = "pointer";
+        li.addEventListener("click", () => {
+            const value = li.querySelector("span:first-child").textContent.trim();
+            const isAlreadyActive = li.classList.contains("active");
 
-sizeLis.forEach(li => {
-    li.style.cursor = "pointer";
-    li.addEventListener("click", () => {
-        const value = li.querySelector("span:first-child").textContent.trim();
-        const isAlreadyActive = li.classList.contains("active");
+            sizeLis.forEach(l => l.classList.remove("active"));
 
-        sizeLis.forEach(l => l.classList.remove("active"));
+            if (isAlreadyActive) {
+                activeFilters.size = null;
+            } else {
+                li.classList.add("active");
+                activeFilters.size = value;
+            }
 
-        if (isAlreadyActive) {
-            activeFilters.size = null;
-        } else {
-            li.classList.add("active");
-            activeFilters.size = value;
-        }
-
-        applyFilters();
+            applyFilters();
+        });
     });
-});
+}
 
 // ===== On Sale badge =====
 const onSaleBadge = document.querySelector(".badge-on-sale");
-
-onSaleBadge.style.cursor = "pointer";
-onSaleBadge.addEventListener("click", () => {
-    activeFilters.onSale = !activeFilters.onSale;
-    onSaleBadge.classList.toggle("active");
-    applyFilters();
-});
+if (onSaleBadge) {
+    onSaleBadge.style.cursor = "pointer";
+    onSaleBadge.addEventListener("click", () => {
+        activeFilters.onSale = !activeFilters.onSale;
+        onSaleBadge.classList.toggle("active");
+        applyFilters();
+    });
+}
 
 // ===== Price range slider =====
 const priceRange = document.getElementById("priceRange");
 const priceLabel = document.getElementById("priceLabel");
 const btnApply = document.querySelector(".btn-apply");
 
-priceRange.addEventListener("input", () => {
-    priceLabel.textContent = `$0 - $${priceRange.value}`;
-});
+if (priceRange) {
+    priceRange.addEventListener("input", () => {
+        priceLabel.textContent = `$0 - $${priceRange.value}`;
+    });
+}
 
-btnApply.addEventListener("click", () => {
-    activeFilters.maxPrice = Number(priceRange.value);
-    applyFilters();
-});
+if (btnApply) {
+    btnApply.addEventListener("click", () => {
+        activeFilters.maxPrice = Number(priceRange.value);
+        applyFilters();
+    });
+}
 
 // ===== Sort dropdown =====
 const sortDropdown = document.querySelector(".sort-dropdown");
@@ -232,47 +257,51 @@ const sortLabel = document.getElementById("sortLabel");
 const sortMenuItems = document.querySelectorAll(".sort-menu li");
 const sortLabels = { default: "Default", lowToHigh: "Price: Low to High", highToLow: "Price: High to Low" };
 
-sortDropdown.addEventListener("click", (e) => {
-    if (e.target.closest(".sort-menu")) return;
-    sortDropdown.classList.toggle("menu-open");
-});
-
-sortMenuItems.forEach(item => {
-    item.addEventListener("click", (e) => {
-        e.stopPropagation();
-
-        sortMode = item.dataset.sort;
-        sortLabel.textContent = sortLabels[sortMode];
-
-        sortMenuItems.forEach(i => i.classList.remove("active"));
-        item.classList.add("active");
-
-        sortDropdown.classList.remove("menu-open");
-        applyFilters();
+if (sortDropdown) {
+    sortDropdown.addEventListener("click", (e) => {
+        if (e.target.closest(".sort-menu")) return;
+        sortDropdown.classList.toggle("menu-open");
     });
-});
 
-document.addEventListener("click", (e) => {
-    if (!sortDropdown.contains(e.target)) {
-        sortDropdown.classList.remove("menu-open");
-    }
-});
+    sortMenuItems.forEach(item => {
+        item.addEventListener("click", (e) => {
+            e.stopPropagation();
+
+            sortMode = item.dataset.sort;
+            sortLabel.textContent = sortLabels[sortMode];
+
+            sortMenuItems.forEach(i => i.classList.remove("active"));
+            item.classList.add("active");
+
+            sortDropdown.classList.remove("menu-open");
+            applyFilters();
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!sortDropdown.contains(e.target)) {
+            sortDropdown.classList.remove("menu-open");
+        }
+    });
+}
 
 // ===== Grid / List view toggle =====
 const btnViewGrid = document.querySelector(".btn-view-grid");
 const btnViewList = document.querySelector(".btn-view-list");
 
-btnViewGrid.addEventListener("click", () => {
-    btnViewGrid.classList.add("active");
-    btnViewList.classList.remove("active");
-    searchGrid.classList.remove("list-view");
-});
+if (btnViewGrid && btnViewList) {
+    btnViewGrid.addEventListener("click", () => {
+        btnViewGrid.classList.add("active");
+        btnViewList.classList.remove("active");
+        searchGrid.classList.remove("list-view");
+    });
 
-btnViewList.addEventListener("click", () => {
-    btnViewList.classList.add("active");
-    btnViewGrid.classList.remove("active");
-    searchGrid.classList.add("list-view");
-});
+    btnViewList.addEventListener("click", () => {
+        btnViewList.classList.add("active");
+        btnViewGrid.classList.remove("active");
+        searchGrid.classList.add("list-view");
+    });
+}
 
-// ===== Initial render =====
+// Initial render call
 applyFilters();
