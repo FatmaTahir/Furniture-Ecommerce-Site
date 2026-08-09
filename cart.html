@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/logo.svg" alt="FURNITUR Logo"></a>
+            </div>
+            <ul class="nav-items-text">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <a href="cart.html" class="cart-link">
+                        <span class="cart-icon-wrap">
+                            <img src="assets/cart-icon.svg" alt="Cart">
+                            <span class="cart-count">0</span>
+                        </span>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="cart-page-main">
+        <div class="breadcrumb-container">
+            <p class="breadcrumb">Home / <span>Your Cart</span></p>
+        </div>
+
+        <h1 class="cart-page-title">SHOPPING CART</h1>
+
+        <div class="cart-page-layout">
+            <!-- Cart Items -->
+            <div class="cart-items-container" id="cartItemsContainer"></div>
+
+            <p id="emptyCartMsg" style="display:none; padding: 40px 0; text-align:center; font-size: 16px;">
+                Your cart is empty. <a href="search-result.html">Continue shopping →</a>
+            </p>
+
+            <!-- Summary -->
+            <div class="cart-summary">
+                <h3>ORDER SUMMARY</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="btn-checkout">PROCEED TO CHECKOUT</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const cartItemsContainer = document.getElementById("cartItemsContainer");
+        const cartSubtotalEl = document.getElementById("cartSubtotal");
+        const cartTotalEl = document.getElementById("cartTotal");
+        const emptyCartMsg = document.getElementById("emptyCartMsg");
+
+        function renderCartPage() {
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = "";
+                emptyCartMsg.style.display = "block";
+                cartSubtotalEl.textContent = "$0.00";
+                cartTotalEl.textContent = "$0.00";
+                return;
+            }
+
+            emptyCartMsg.style.display = "none";
+
+            cartItemsContainer.innerHTML = cart.map(item => {
+                const price = parseFloat(item.price.replace("$", ""));
+                const lineTotal = (price * item.qty).toFixed(2);
+
+                return `
+                    <div class="cart-row" data-id="${item.id}">
+                        <img src="${item.img}" alt="${item.name}" class="cart-item-img">
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="cart-item-price">${item.price}</p>
+                        </div>
+                        <div class="cart-qty-controls">
+                            <button class="cart-qty-btn cart-qty-minus" data-id="${item.id}">-</button>
+                            <span>${item.qty}</span>
+                            <button class="cart-qty-btn cart-qty-plus" data-id="${item.id}">+</button>
+                        </div>
+                        <div class="cart-line-total">$${lineTotal}</div>
+                        <button class="cart-remove-btn" data-id="${item.id}">✕</button>
+                    </div>
+                `;
+            }).join("");
+
+            const total = getCartTotal();
+            cartSubtotalEl.textContent = `$${total.toFixed(2)}`;
+            cartTotalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        cartItemsContainer.addEventListener("click", (e) => {
+            const id = e.target.dataset.id;
+            if (!id) return;
+
+            if (e.target.classList.contains("cart-qty-plus")) {
+                const item = getCart().find(i => i.id === id);
+                updateQty(id, item.qty + 1);
+                renderCartPage();
+            }
+
+            if (e.target.classList.contains("cart-qty-minus")) {
+                const item = getCart().find(i => i.id === id);
+                updateQty(id, item.qty - 1);
+                renderCartPage();
+            }
+
+            if (e.target.classList.contains("cart-remove-btn")) {
+                removeFromCart(id);
+                renderCartPage();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", renderCartPage);
+    </script>
+</body>
+</html>

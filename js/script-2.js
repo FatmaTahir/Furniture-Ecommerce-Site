@@ -22,18 +22,21 @@ function getPriceNumber(priceStr) {
 function displaySearchProducts(items) {
     searchGrid.innerHTML = items.map(product => `
         <div class="card">
-            <div class="card-img-wrapper">
-                <img src="${product.img}" alt="${product.name}">
-            </div>
-            <h3 class="product-name">
-                ${product.name}
-            </h3>
-            <div class="rating">
-                <img src="${product.rating}" alt="Rating">
-            </div>
-            <h4 class="product-price">
-                ${product.price}
-            </h4>
+            <a href="detail.html?id=${product.id}" class="card-link">
+                <div class="card-img-wrapper">
+                    <img src="${product.img}" alt="${product.name}">
+                </div>
+                <h3 class="product-name">
+                    ${product.name}
+                </h3>
+                <div class="rating">
+                    <img src="${product.rating}" alt="Rating">
+                </div>
+                <h4 class="product-price">
+                    ${product.price}
+                </h4>
+            </a>
+            <button class="add-to-cart-btn" data-id="${product.id}">Add to Cart</button>
         </div>
     `).join("");
 }
@@ -274,6 +277,25 @@ btnViewList.addEventListener("click", () => {
     btnViewList.classList.add("active");
     btnViewGrid.classList.remove("active");
     searchGrid.classList.add("list-view");
+});
+// ===== Add to Cart (event delegation) =====
+searchGrid.addEventListener("click", (e) => {
+    const btn = e.target.closest(".add-to-cart-btn");
+    if (!btn) return;
+
+    const id = btn.dataset.id;
+    const product = products.find(p => p.id === id);
+    if (!product) return;
+
+    addToCart(product);
+
+    const originalText = btn.textContent;
+    btn.textContent = "Added ✓";
+    btn.classList.add("added");
+    setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove("added");
+    }, 1000);
 });
 
 applyFilters();

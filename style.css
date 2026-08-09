@@ -1248,11 +1248,12 @@ footer {
     padding-left: 14px;
 }
 .card-link {
-    display: block;
+    
+    cursor: pointer;
+    
+     display: block;
     text-decoration: none;
     color: inherit;
-    cursor: pointer;
-    pointer-events: auto;
 }
 
 .card-link:hover {
@@ -1513,4 +1514,132 @@ footer {
     line-height: 1.8;
     color: #777777;
     margin: 0;
+}
+.cart-page-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 20px 60px;
+}
+
+.cart-page-title {
+    margin: 20px 0 30px;
+    letter-spacing: 1px;
+}
+
+.cart-page-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.cart-items-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cart-row {
+    display: grid;
+    grid-template-columns: 70px 1fr auto auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 14px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+}
+.add-to-cart-btn{
+    background-color: black;
+    color: white;
+    font-weight: 200;
+    border: 2px black solid;
+    width: 90px;
+    height: 30px;
+    margin-top: 2px;
+    padding: auto;
+}
+
+.cart-item-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cart-item-price {
+    color: #777;
+    font-size: 13px;
+}
+
+.cart-qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-qty-btn {
+    width: 26px;
+    height: 26px;
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-line-total {
+    font-weight: 600;
+    min-width: 80px;
+    text-align: right;
+}
+
+.cart-remove-btn {
+    background: none;
+    border: none;
+    color: #c0392b;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.cart-summary {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    position: sticky;
+    top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.total-row {
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.btn-checkout {
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .cart-page-layout {
+        grid-template-columns: 1fr;
+    }
+    .cart-row {
+        grid-template-columns: 50px 1fr;
+        grid-template-areas:
+            "img info"
+            "img qty"
+            "img total";
+    }
 }
