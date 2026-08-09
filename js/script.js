@@ -42,6 +42,20 @@ btns.forEach(btn => {
     });
 });
 
+const searchInput = document.querySelector(".search-input");
+const searchButton = document.querySelector("#search-btn");
+
+searchButton.addEventListener("click", function () {
+
+    const searchText = searchInput.value.trim();
+
+    if (searchText !== "") {
+        window.location.href =
+            `search-results.html?search=${encodeURIComponent(searchText)}`;
+    }
+
+});
+
 
 
 

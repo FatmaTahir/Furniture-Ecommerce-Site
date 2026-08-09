@@ -20,33 +20,22 @@ function getPriceNumber(priceStr) {
 }
 
 function displaySearchProducts(items) {
-    function displaySearchProducts(items) {
-         console.log("🔥 NEW displaySearchProducts is running");
     searchGrid.innerHTML = items.map(product => `
-        <a href="product-detail.html?id=${product.id}" 
-           class="card-link">
-
-            <div class="card">
-                <div class="card-img-wrapper">
-                    <img src="${product.img}" alt="${product.name}">
-                </div>
-
-                <h3 class="product-name">
-                    ${product.name}
-                </h3>
-
-                <div class="rating">
-                    <img src="${product.rating}" alt="Rating">
-                </div>
-
-                <h4 class="product-price">
-                    ${product.price}
-                </h4>
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="${product.img}" alt="${product.name}">
             </div>
-
-        </a>
+            <h3 class="product-name">
+                ${product.name}
+            </h3>
+            <div class="rating">
+                <img src="${product.rating}" alt="Rating">
+            </div>
+            <h4 class="product-price">
+                ${product.price}
+            </h4>
+        </div>
     `).join("");
-}
 }
 
 // ===== Accordion toggles =====
@@ -76,7 +65,7 @@ let sortMode = "default";
 
 // ===== Pagination state =====
 let currentPage = 1;
-const itemsPerPage = 3;
+const itemsPerPage = 9;
 let currentFilteredList = products;
 
 const pageNumbersContainer = document.getElementById("pageNumbers");
@@ -85,7 +74,6 @@ const nextBtn = document.getElementById("nextPage");
 
 function renderPagination() {
     const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
-
     pageNumbersContainer.innerHTML = "";
 
     for (let i = 1; i <= totalPages; i++) {
@@ -99,8 +87,8 @@ function renderPagination() {
         pageNumbersContainer.appendChild(btn);
     }
 
-    if (prevBtn) prevBtn.disabled = currentPage === 1;
-    if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
 }
 
 function renderPage() {
@@ -112,24 +100,20 @@ function renderPage() {
     renderPagination();
 }
 
-if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage();
-        }
-    });
-}
+prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+    }
+});
 
-if (nextBtn) {
-    nextBtn.addEventListener("click", () => {
-        const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
-        if (currentPage < totalPages) {
-            currentPage++;
-            renderPage();
-        }
-    });
-}
+nextBtn.addEventListener("click", () => {
+    const totalPages = Math.max(1, Math.ceil(currentFilteredList.length / itemsPerPage));
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderPage();
+    }
+});
 
 // ===== Main filter/sort pipeline =====
 function applyFilters() {
@@ -149,7 +133,7 @@ function applyFilters() {
     }
 
     currentFilteredList = filtered;
-    currentPage = 1; 
+    currentPage = 1;
     renderPage();
 }
 
@@ -176,80 +160,73 @@ searchbtns.forEach(btn => {
 
 // ===== Materials filter =====
 const materialList = document.querySelector(".material-list");
-if (materialList) {
-    const materialLis = materialList.querySelectorAll("li");
-    materialLis.forEach(li => {
-        li.style.cursor = "pointer";
-        li.addEventListener("click", () => {
-            const value = li.querySelector("span:first-child").textContent.trim();
-            const isAlreadyActive = li.classList.contains("active");
+const materialLis = materialList.querySelectorAll("li");
 
-            materialLis.forEach(l => l.classList.remove("active"));
+materialLis.forEach(li => {
+    li.style.cursor = "pointer";
+    li.addEventListener("click", () => {
+        const value = li.querySelector("span:first-child").textContent.trim();
+        const isAlreadyActive = li.classList.contains("active");
 
-            if (isAlreadyActive) {
-                activeFilters.material = null;
-            } else {
-                li.classList.add("active");
-                activeFilters.material = value;
-            }
+        materialLis.forEach(l => l.classList.remove("active"));
 
-            applyFilters();
-        });
+        if (isAlreadyActive) {
+            activeFilters.material = null;
+        } else {
+            li.classList.add("active");
+            activeFilters.material = value;
+        }
+
+        applyFilters();
     });
-}
+});
 
 // ===== Size filter =====
 const sizeList = document.querySelector(".size-list");
-if (sizeList) {
-    const sizeLis = sizeList.querySelectorAll("li");
-    sizeLis.forEach(li => {
-        li.style.cursor = "pointer";
-        li.addEventListener("click", () => {
-            const value = li.querySelector("span:first-child").textContent.trim();
-            const isAlreadyActive = li.classList.contains("active");
+const sizeLis = sizeList.querySelectorAll("li");
 
-            sizeLis.forEach(l => l.classList.remove("active"));
+sizeLis.forEach(li => {
+    li.style.cursor = "pointer";
+    li.addEventListener("click", () => {
+        const value = li.querySelector("span:first-child").textContent.trim();
+        const isAlreadyActive = li.classList.contains("active");
 
-            if (isAlreadyActive) {
-                activeFilters.size = null;
-            } else {
-                li.classList.add("active");
-                activeFilters.size = value;
-            }
+        sizeLis.forEach(l => l.classList.remove("active"));
 
-            applyFilters();
-        });
+        if (isAlreadyActive) {
+            activeFilters.size = null;
+        } else {
+            li.classList.add("active");
+            activeFilters.size = value;
+        }
+
+        applyFilters();
     });
-}
+});
 
 // ===== On Sale badge =====
 const onSaleBadge = document.querySelector(".badge-on-sale");
-if (onSaleBadge) {
-    onSaleBadge.style.cursor = "pointer";
-    onSaleBadge.addEventListener("click", () => {
-        activeFilters.onSale = !activeFilters.onSale;
-        onSaleBadge.classList.toggle("active");
-        applyFilters();
-    });
-}
+
+onSaleBadge.style.cursor = "pointer";
+onSaleBadge.addEventListener("click", () => {
+    activeFilters.onSale = !activeFilters.onSale;
+    onSaleBadge.classList.toggle("active");
+    applyFilters();
+});
 
 // ===== Price range slider =====
 const priceRange = document.getElementById("priceRange");
 const priceLabel = document.getElementById("priceLabel");
 const btnApply = document.querySelector(".btn-apply");
 
-if (priceRange) {
-    priceRange.addEventListener("input", () => {
-        priceLabel.textContent = `$0 - $${priceRange.value}`;
-    });
-}
+priceRange.addEventListener("input", () => {
+    priceLabel.textContent = `$0 - $${priceRange.value}`;
+});
 
-if (btnApply) {
-    btnApply.addEventListener("click", () => {
-        activeFilters.maxPrice = Number(priceRange.value);
-        applyFilters();
-    });
-}
+btnApply.addEventListener("click", () => {
+    activeFilters.maxPrice = Number(priceRange.value);
+    applyFilters();
+});
 
 // ===== Sort dropdown =====
 const sortDropdown = document.querySelector(".sort-dropdown");
@@ -257,51 +234,46 @@ const sortLabel = document.getElementById("sortLabel");
 const sortMenuItems = document.querySelectorAll(".sort-menu li");
 const sortLabels = { default: "Default", lowToHigh: "Price: Low to High", highToLow: "Price: High to Low" };
 
-if (sortDropdown) {
-    sortDropdown.addEventListener("click", (e) => {
-        if (e.target.closest(".sort-menu")) return;
-        sortDropdown.classList.toggle("menu-open");
+sortDropdown.addEventListener("click", (e) => {
+    if (e.target.closest(".sort-menu")) return;
+    sortDropdown.classList.toggle("menu-open");
+});
+
+sortMenuItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        sortMode = item.dataset.sort;
+        sortLabel.textContent = sortLabels[sortMode];
+
+        sortMenuItems.forEach(i => i.classList.remove("active"));
+        item.classList.add("active");
+
+        sortDropdown.classList.remove("menu-open");
+        applyFilters();
     });
+});
 
-    sortMenuItems.forEach(item => {
-        item.addEventListener("click", (e) => {
-            e.stopPropagation();
-
-            sortMode = item.dataset.sort;
-            sortLabel.textContent = sortLabels[sortMode];
-
-            sortMenuItems.forEach(i => i.classList.remove("active"));
-            item.classList.add("active");
-
-            sortDropdown.classList.remove("menu-open");
-            applyFilters();
-        });
-    });
-
-    document.addEventListener("click", (e) => {
-        if (!sortDropdown.contains(e.target)) {
-            sortDropdown.classList.remove("menu-open");
-        }
-    });
-}
+document.addEventListener("click", (e) => {
+    if (!sortDropdown.contains(e.target)) {
+        sortDropdown.classList.remove("menu-open");
+    }
+});
 
 // ===== Grid / List view toggle =====
 const btnViewGrid = document.querySelector(".btn-view-grid");
 const btnViewList = document.querySelector(".btn-view-list");
 
-if (btnViewGrid && btnViewList) {
-    btnViewGrid.addEventListener("click", () => {
-        btnViewGrid.classList.add("active");
-        btnViewList.classList.remove("active");
-        searchGrid.classList.remove("list-view");
-    });
+btnViewGrid.addEventListener("click", () => {
+    btnViewGrid.classList.add("active");
+    btnViewList.classList.remove("active");
+    searchGrid.classList.remove("list-view");
+});
 
-    btnViewList.addEventListener("click", () => {
-        btnViewList.classList.add("active");
-        btnViewGrid.classList.remove("active");
-        searchGrid.classList.add("list-view");
-    });
-}
+btnViewList.addEventListener("click", () => {
+    btnViewList.classList.add("active");
+    btnViewGrid.classList.remove("active");
+    searchGrid.classList.add("list-view");
+});
 
-// Initial render call
 applyFilters();

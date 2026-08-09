@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results - FURNITUR</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script-2.js" defer></script>
+    <script src="js/script-2.js" defer></script>
 </head>
 
 <body class="search-page-body">
@@ -40,9 +41,20 @@
     </header>
     <main class="search-page-main">
         <div class="breadcrumb-container">
-            <p class="breadcrumb">Home > <span>Furniture</span></p>
+            <p class="breadcrumb">Home / <span>Furniture</span></p>
         </div>
-
+         <div class="main">
+           <div class="main-text">
+            <h6>WELCOME TO OUR</h6>
+            <h1>FURNITURE <br> GALLERY</h1>
+            <img src="line.svg" alt="" srcset="">
+            <h6>BROWSE OUR SELECTIONS</h6>
+            <p>
+                Featuring sleek designs and innovative materials that <br> seamlessly
+                blend form and function
+            </p>
+        </div>
+         </div>
         <div class="search-layout">
             <aside class="sidebar-filters">
                 <div class="filter-group">
@@ -99,13 +111,13 @@
                             <span>PRICE</span>
                             <span class="icon">-</span>
                         </div>
-                       <div class="price-slider-box">
-    <input type="range" id="priceRange" class="price-range" min="0" max="2700" value="2700">
-    <div class="price-inputs">
-        <span class="price-label" id="priceLabel">$0 - $2700</span>
-        <button class="btn-apply">Apply</button>
-    </div>
-</div>
+                        <div class="price-slider-box">
+                            <input type="range" id="priceRange" class="price-range" min="0" max="2700" value="2700">
+                            <div class="price-inputs">
+                                <span class="price-label" id="priceLabel">$0 - $2700</span>
+                                <button class="btn-apply">Apply</button>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-accordion">
@@ -150,15 +162,15 @@
                         <span class="badge-on-sale">ON SALE</span>
 
                         <div class="sort-dropdown">
-    <span>Sort by: <strong id="sortLabel">Default</strong></span>
-    <span class="arrow-icon">▾</span>
+                            <span>Sort by: <strong id="sortLabel">Default</strong></span>
+                            <span class="arrow-icon">▾</span>
 
-    <ul class="sort-menu">
-        <li data-sort="default">Default</li>
-        <li data-sort="lowToHigh">Price: Low to High</li>
-        <li data-sort="highToLow">Price: High to Low</li>
-    </ul>
-</div>
+                            <ul class="sort-menu">
+                                <li data-sort="default">Default</li>
+                                <li data-sort="lowToHigh">Price: Low to High</li>
+                                <li data-sort="highToLow">Price: High to Low</li>
+                            </ul>
+                        </div>
 
                         <div class="view-toggles">
                             <button class="btn-view-list">≡</button>
@@ -170,111 +182,80 @@
                         <span class="results-count">SHOWED 1 - 9 OF 30 PRODUCTS</span>
                     </div>
                 </div>
-
                 <div class="search-grid">
-
-    
-
                 </div>
-
+                <div class="pagination">
+    <button class="page-arrow" id="prevPage">‹</button>
+    <div class="page-numbers" id="pageNumbers"></div>
+    <button class="page-arrow" id="nextPage">›</button>
+</div>    
             </section>
-            
+
 
         </div>
 
     </main>
-    <section class="promo-banner-section">
-    <div class="promo-banner">
-        <div class="promo-left">
-            <h2>MORDERN BRONZE<br>HANGING LIGHT</h2>
-            <div class="promo-rating">
-                <img src="assets/rating.svg" alt="Rating">
-            </div>
-            <div class="promo-price-box">
-                <span class="old-price">$3360.44</span>
-                <div class="price-discount-row">
-                    <span class="current-price">$2352.41</span>
-                    <span class="discount-badge">-30%</span>
+    
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Customs and Taxes</a></li>
+                        <li><a href="#">Customers's Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Japan with love</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Special Deals & Offers</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>HELP CENTER</h4>
+                    <ul>
+                        <li><a href="#">Order Information</a></li>
+                        <li><a href="#">Shipping Options</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>RETURN & WARRANTY</h4>
+                    <ul>
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Returns Center</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Warranty Registration</a></li>
+                        <li><a href="#">Warranty Repair Center</a></li>
+                    </ul>
                 </div>
             </div>
-        </div>
 
-        <div class="promo-center">
-            <img src="assets/modern-broze-hanging-light-img.svg" alt="Modern Bronze Hanging Light">
-        </div>
+            <!-- Divider Line -->
+            <hr class="footer-divider">
 
-        <div class="promo-right">
-            <p>
-                Stunning lighting fixture that combines contemporary style with timeless elegance.
-                Featuring a sleek and minimalist design, this hanging light is crafted from high-quality bronze
-                and finished with a smooth and lustrous surface.
-            </p>
-            <button class="buy-now-btn">BUY NOW</button>
-        </div>
-    </div>
-</section>
-<footer>
-    <div class="footer-container">
-        
-        <!-- Top Links Grid -->
-        <div class="footer-links">
-            <div class="footer-column">
-                <h4>CUSTOMER SERVICE</h4>
-                <ul>
-                    <li><a href="#">Help & FAQs</a></li>
-                    <li><a href="#">Return & Refund</a></li>
-                    <li><a href="#">Shipping Policy</a></li>
-                    <li><a href="#">Customs and Taxes</a></li>
-                    <li><a href="#">Customers's Reviews</a></li>
-                </ul>
+            <!-- Bottom Copyright Row -->
+            <div class="footer-bottom">
+                <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+                <div class="footer-socials">
+                    <img src="assets/footer-logos.svg" alt="Social Media Links">
+                </div>
             </div>
 
-            <div class="footer-column">
-                <h4>COMPANY</h4>
-                <ul>
-                    <li><a href="#">About Japan with love</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Special Deals & Offers</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>HELP CENTER</h4>
-                <ul>
-                    <li><a href="#">Order Information</a></li>
-                    <li><a href="#">Shipping Options</a></li>
-                    <li><a href="#">International Shipping</a></li>
-                    <li><a href="#">Payment Options</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>RETURN & WARRANTY</h4>
-                <ul>
-                    <li><a href="#">Returns & Exchange Policy</a></li>
-                    <li><a href="#">Returns Center</a></li>
-                    <li><a href="#">Warranty Policy</a></li>
-                    <li><a href="#">Warranty Registration</a></li>
-                    <li><a href="#">Warranty Repair Center</a></li>
-                </ul>
-            </div>
         </div>
-
-        <!-- Divider Line -->
-        <hr class="footer-divider">
-
-        <!-- Bottom Copyright Row -->
-        <div class="footer-bottom">
-            <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
-            <div class="footer-socials">
-                <img src="assets/footer-logos.svg" alt="Social Media Links">
-            </div>
-        </div>
-
-    </div>
-</footer>
+    </footer>
 </body>
 
 </html>

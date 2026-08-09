@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/detail.js" defer></script>
+</head>
+
+<body class="search-page-body">
+
+    <!-- Header -->
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/logo.svg" alt="FURNITUR Logo"></a>
+            </div>
+            <div class="search-bar">
+                <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+                <input type="text" placeholder="Furniture">
+            </div>
+
+            <ul class="nav-items-text">
+                <li><a href="#">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <img src="assets/cart-icon.svg" alt="Cart">
+                    <span>CART</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="product-detail-main">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-container">
+            <p class="breadcrumb">Home / Furniture / <span id="breadcrumb-title">Product Detail</span></p>
+        </div>
+
+        <!-- Product Details Section -->
+        <section class="product-detail-section">
+            <div class="product-media">
+                <div class="circle-bg"></div>
+                <img src="" alt="Product Image" id="detail-img" class="product-main-img">
+            </div>
+
+            <div class="product-info-card">
+                <h1 class="product-title" id="detail-name">LOADING...</h1>
+
+                <div class="rating-row">
+                    <div class="stars">★★★★☆</div>
+                    <span class="sale-badge" id="detail-sale" style="display: none;">ON SALE</span>
+                </div>
+
+                <p class="sales-stats">261 products sold &nbsp;•&nbsp; 3.1k products watched</p>
+
+                <!-- Type -->
+                <div class="option-group">
+                    <label class="option-label">Type:</label>
+                    <div class="option-buttons">
+                        <button class="opt-btn active">Long</button>
+                        <button class="opt-btn">Medium</button>
+                        <button class="opt-btn">Short</button>
+                    </div>
+                </div>
+
+                <!-- Color -->
+                <div class="option-group">
+                    <label class="option-label">Color:</label>
+                    <div class="option-buttons">
+                        <button class="opt-btn">Coban</button>
+                        <button class="opt-btn">Saphire</button>
+                        <button class="opt-btn active">Emerald</button>
+                        <button class="opt-btn">Ruby</button>
+                    </div>
+                </div>
+
+                <!-- Quantity & Price -->
+                <div class="purchase-row">
+                    <div class="quantity-picker">
+                        <button class="qty-btn" id="qty-minus">-</button>
+                        <span id="qty-count">Number: 1</span>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                    <div class="product-price" id="detail-price">$0.00</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Tabs -->
+        <section class="product-tabs-section">
+            <div class="tabs-header">
+                <button class="tab-btn active">PRODUCT DETAIL</button>
+                <button class="tab-btn">DELIVERY AND RETURN</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="content-col">
+                    <h3>DESCRIPTION</h3>
+                    <p>
+                        Introducing our minimal furniture product - a sleek and stylish addition to any modern home. 
+                        With its clean lines and simple design, this item is perfect for those who value both form 
+                        and function. The neutral color palette allows it to blend seamlessly into any living space.
+                    </p>
+                </div>
+
+                <div class="content-col">
+                    <h3>FITS AND FEATURES</h3>
+                    <ol>
+                        <li>Minimal designs with sturdy frames and firm build quality.</li>
+                        <li>Features neutral-colored finishes made of high-quality materials.</li>
+                        <li>Practical, versatile, and timeless aesthetic.</li>
+                        <li>Upgrade your living space with this piece today.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section>
+        <div class="choose-text">
+            <h4>WHY CHOOSE US</h4>
+        </div>
+        <div class="why-choose-us">
+            <img src="assets/why-1.svg" alt="" srcset="">
+            <img src="assets/why-2.svg" alt="" srcset="">
+            <img src="assets/why-3.svg" alt="" srcset="">
+        </div>
+        <div class="why-choose-us-reverse">
+            <img src="assets/why-4.svg" alt="" srcset="">
+            <img src="assets/why-5.svg" alt="" srcset="">
+            <img src="assets/why-6.svg" alt="" srcset="">
+        </div>
+    </section>
+     <section class="reviews-section">
+    <div class="reviews-container">
+        
+        <!-- Left Column: Submit Review Form -->
+        <div class="review-form-wrapper">
+            <h2 class="form-title">YOUR REVIEW</h2>
+            <form class="review-form">
+                <div class="form-group">
+                    <input type="text" placeholder="About mordern hanging bronze light" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your E-mail" required>
+                </div>
+                <div class="form-group select-wrapper">
+                    <select required>
+                        <option value="" disabled selected hidden>5 Stars</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="This product is..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit-review">Submit</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Customer Reviews List -->
+        <div class="reviews-list">
+            
+            <!-- Review 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <img src="assets/r-1.svg" alt="Val Purvis" class="avatar">
+                        <div>
+                            <h4 class="user-name">Val Purvis</h4>
+                            <span class="review-date">July, 23 2020</span>
+                        </div>
+                    </div>
+                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                </div>
+                <h5 class="review-headline">Great Product</h5>
+                <p class="review-text">
+                    I love my new Nova Lounge Sofa! The clean lines and premium upholstery make it a sleek addition to my living room, and the adjustable headrests add an extra touch of comfort. Highly recommend!
+                </p>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <img src="assets/r-2.svg" alt="Phoebe Kunis" class="avatar">
+                        <div>
+                            <h4 class="user-name">Phoebe Kunis</h4>
+                            <span class="review-date">July, 23 2020</span>
+                        </div>
+                    </div>
+                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                </div>
+                <h5 class="review-headline">Great Product</h5>
+                <p class="review-text">
+                    Perfect centerpiece for my home. Its chic design and comfortable cushions make it ideal for lounging, and the high-quality materials mean it will last for years to come.
+                </p>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <img src="assets/r-3.svg" alt="Dianne Russell" class="avatar">
+                        <div>
+                            <h4 class="user-name">Dianne Russell</h4>
+                            <span class="review-date">July, 23 2020</span>
+                        </div>
+                    </div>
+                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                </div>
+                <h5 class="review-headline">Great Product</h5>
+                <p class="review-text">
+                    The Zenith Modern Chair is a game-changer for my workspace. Its minimalist design fits perfectly with my aesthetic, and the durable materials make it a worthwhile investment... <a href="#" class="read-more">Read more</a>
+                </p>
+            </div>
+
+            <!-- Review 4 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="user-info">
+                        <img src="assets/r-4.svg" alt="Kendall Mckernan" class="avatar">
+                        <div>
+                            <h4 class="user-name">Kendall Mckernan</h4>
+                            <span class="review-date">July, 23 2020</span>
+                        </div>
+                    </div>
+                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                </div>
+                <h5 class="review-headline">Great Product</h5>
+                <p class="review-text">
+                    I can't get enough of my new Luminous Lounge Sofa! The reclining seats and headrests make it perfect for movie nights, and the sleek design adds a touch of sophistication to... <a href="#" class="read-more">Read more</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq-section">
+    <div class="faq-container">
+        <!-- Section Header -->
+        <div class="faq-header">
+            <h2 class="faq-title">FREQUENT QUESTION ANSWERS</h2>
+            <p class="faq-subtitle">SOLVE ALL YOUR PROBLEM ABOUT OUR PRODUCTS</p>
+        </div>
+
+        <!-- Accordion List -->
+        <div class="faq-accordion-list">
+            
+            <!-- Question 1 -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>1. What payment methods do you accept?</span>
+                    <span class="faq-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>We accept major credit/debit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and Google Pay. We also offer flexible Buy Now, Pay Later options through Klarna and Affirm at checkout.</p>
+                </div>
+            </details>
+
+            <!-- Question 2 (Open by default as shown in Figma) -->
+            <details class="faq-item" open>
+                <summary class="faq-question">
+                    <span>2. Do you offer free shipping?</span>
+                    <span class="faq-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Yes, we offer free standard shipping on all orders over a certain amount within the continental United States. For orders below that amount or for expedited shipping options, additional fees may apply.</p>
+                </div>
+            </details>
+
+            <!-- Question 3 -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>3. How long does it take for delivery?</span>
+                    <span class="faq-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Standard delivery typically takes 3 to 7 business days depending on your location. Large furniture items requiring freight shipping may take 1 to 2 weeks, and tracking details will be provided once shipped.</p>
+                </div>
+            </details>
+
+            <!-- Question 4 -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>4. What is your return policy?</span>
+                    <span class="faq-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>We offer a 30-day risk-free return policy. If you are not completely satisfied with your purchase, you can return it within 30 days of delivery in its original condition and packaging for a full refund or exchange.</p>
+                </div>
+            </details>
+
+            <!-- Question 5 -->
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>5. Do you offer assembly or installation services?</span>
+                    <span class="faq-icon"></span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Yes! We offer optional White Glove Assembly Services at checkout for larger furniture pieces. Our delivery team will assemble the item in your room of choice and remove all packaging materials.</p>
+                </div>
+            </details>
+
+        </div>
+    </div>
+</section>
+<footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Customs and Taxes</a></li>
+                        <li><a href="#">Customers's Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Japan with love</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Special Deals & Offers</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>HELP CENTER</h4>
+                    <ul>
+                        <li><a href="#">Order Information</a></li>
+                        <li><a href="#">Shipping Options</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>RETURN & WARRANTY</h4>
+                    <ul>
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Returns Center</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Warranty Registration</a></li>
+                        <li><a href="#">Warranty Repair Center</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <hr class="footer-divider">
+
+            <!-- Bottom Copyright Row -->
+            <div class="footer-bottom">
+                <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+                <div class="footer-socials">
+                    <img src="assets/footer-logos.svg" alt="Social Media Links">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>
