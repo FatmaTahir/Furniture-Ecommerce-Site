@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Details - FURNITUR</title>
     <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
     <script src="js/detail.js" defer></script>
 </head>
 
@@ -34,9 +35,14 @@
                     <img src="assets/heart-icon.svg" alt="Love">
                     <span>LOVE</span>
                 </li>
-                <li class="nav-item-link">
-                    <img src="assets/cart-icon.svg" alt="Cart">
-                    <span>CART</span>
+                 <li class="nav-item-link">
+                    <a href="cart.html" class="cart-link">
+                        <span class="cart-icon-wrap">
+                            <img src="assets/cart-icon.svg" alt="Cart">
+                            <span class="cart-count">0</span>
+                        </span>
+                        <span>CART</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -95,6 +101,7 @@
                     </div>
                     <div class="product-price" id="detail-price">$0.00</div>
                 </div>
+                <button class="add-to-cart-btn" id="detail-add-to-cart">Add to Cart</button>
             </div>
         </section>
 
@@ -109,8 +116,8 @@
                 <div class="content-col">
                     <h3>DESCRIPTION</h3>
                     <p>
-                        Introducing our minimal furniture product - a sleek and stylish addition to any modern home. 
-                        With its clean lines and simple design, this item is perfect for those who value both form 
+                        Introducing our minimal furniture product - a sleek and stylish addition to any modern home.
+                        With its clean lines and simple design, this item is perfect for those who value both form
                         and function. The neutral color palette allows it to blend seamlessly into any living space.
                     </p>
                 </div>
@@ -142,189 +149,205 @@
             <img src="assets/why-6.svg" alt="" srcset="">
         </div>
     </section>
-     <section class="reviews-section">
-    <div class="reviews-container">
-        
-        <!-- Left Column: Submit Review Form -->
-        <div class="review-form-wrapper">
-            <h2 class="form-title">YOUR REVIEW</h2>
-            <form class="review-form">
-                <div class="form-group">
-                    <input type="text" placeholder="About mordern hanging bronze light" required>
-                </div>
-                <div class="form-group">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" placeholder="Your E-mail" required>
-                </div>
-                <div class="form-group select-wrapper">
-                    <select required>
-                        <option value="" disabled selected hidden>5 Stars</option>
-                        <option value="5">5 Stars</option>
-                        <option value="4">4 Stars</option>
-                        <option value="3">3 Stars</option>
-                        <option value="2">2 Stars</option>
-                        <option value="1">1 Star</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <textarea rows="4" placeholder="This product is..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit-review">Submit</button>
-            </form>
-        </div>
+    <section class="reviews-section">
+        <div class="reviews-container">
 
-        <!-- Right Column: Customer Reviews List -->
-        <div class="reviews-list">
-            
-            <!-- Review 1 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="user-info">
-                        <img src="assets/r-1.svg" alt="Val Purvis" class="avatar">
-                        <div>
-                            <h4 class="user-name">Val Purvis</h4>
-                            <span class="review-date">July, 23 2020</span>
-                        </div>
+            <!-- Left Column: Submit Review Form -->
+            <div class="review-form-wrapper">
+                <h2 class="form-title">YOUR REVIEW</h2>
+                <form class="review-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="About mordern hanging bronze light" required>
                     </div>
-                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
-                </div>
-                <h5 class="review-headline">Great Product</h5>
-                <p class="review-text">
-                    I love my new Nova Lounge Sofa! The clean lines and premium upholstery make it a sleek addition to my living room, and the adjustable headrests add an extra touch of comfort. Highly recommend!
-                </p>
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your E-mail" required>
+                    </div>
+                    <div class="form-group select-wrapper">
+                        <select required>
+                            <option value="" disabled selected hidden>5 Stars</option>
+                            <option value="5">5 Stars</option>
+                            <option value="4">4 Stars</option>
+                            <option value="3">3 Stars</option>
+                            <option value="2">2 Stars</option>
+                            <option value="1">1 Star</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="4" placeholder="This product is..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-review">Submit</button>
+                </form>
             </div>
 
-            <!-- Review 2 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="user-info">
-                        <img src="assets/r-2.svg" alt="Phoebe Kunis" class="avatar">
-                        <div>
-                            <h4 class="user-name">Phoebe Kunis</h4>
-                            <span class="review-date">July, 23 2020</span>
-                        </div>
-                    </div>
-                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
-                </div>
-                <h5 class="review-headline">Great Product</h5>
-                <p class="review-text">
-                    Perfect centerpiece for my home. Its chic design and comfortable cushions make it ideal for lounging, and the high-quality materials mean it will last for years to come.
-                </p>
-            </div>
+            <!-- Right Column: Customer Reviews List -->
+            <div class="reviews-list">
 
-            <!-- Review 3 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="user-info">
-                        <img src="assets/r-3.svg" alt="Dianne Russell" class="avatar">
-                        <div>
-                            <h4 class="user-name">Dianne Russell</h4>
-                            <span class="review-date">July, 23 2020</span>
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-info">
+                            <img src="assets/r-1.svg" alt="Val Purvis" class="avatar">
+                            <div>
+                                <h4 class="user-name">Val Purvis</h4>
+                                <span class="review-date">July, 23 2020</span>
+                            </div>
                         </div>
+                        <img src="assets/rating.svg" alt="Rating" class="review-stars">
                     </div>
-                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                    <h5 class="review-headline">Great Product</h5>
+                    <p class="review-text">
+                        I love my new Nova Lounge Sofa! The clean lines and premium upholstery make it a sleek addition
+                        to my living room, and the adjustable headrests add an extra touch of comfort. Highly recommend!
+                    </p>
                 </div>
-                <h5 class="review-headline">Great Product</h5>
-                <p class="review-text">
-                    The Zenith Modern Chair is a game-changer for my workspace. Its minimalist design fits perfectly with my aesthetic, and the durable materials make it a worthwhile investment... <a href="#" class="read-more">Read more</a>
-                </p>
-            </div>
 
-            <!-- Review 4 -->
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="user-info">
-                        <img src="assets/r-4.svg" alt="Kendall Mckernan" class="avatar">
-                        <div>
-                            <h4 class="user-name">Kendall Mckernan</h4>
-                            <span class="review-date">July, 23 2020</span>
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-info">
+                            <img src="assets/r-2.svg" alt="Phoebe Kunis" class="avatar">
+                            <div>
+                                <h4 class="user-name">Phoebe Kunis</h4>
+                                <span class="review-date">July, 23 2020</span>
+                            </div>
                         </div>
+                        <img src="assets/rating.svg" alt="Rating" class="review-stars">
                     </div>
-                    <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                    <h5 class="review-headline">Great Product</h5>
+                    <p class="review-text">
+                        Perfect centerpiece for my home. Its chic design and comfortable cushions make it ideal for
+                        lounging, and the high-quality materials mean it will last for years to come.
+                    </p>
                 </div>
-                <h5 class="review-headline">Great Product</h5>
-                <p class="review-text">
-                    I can't get enough of my new Luminous Lounge Sofa! The reclining seats and headrests make it perfect for movie nights, and the sleek design adds a touch of sophistication to... <a href="#" class="read-more">Read more</a>
-                </p>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-info">
+                            <img src="assets/r-3.svg" alt="Dianne Russell" class="avatar">
+                            <div>
+                                <h4 class="user-name">Dianne Russell</h4>
+                                <span class="review-date">July, 23 2020</span>
+                            </div>
+                        </div>
+                        <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                    </div>
+                    <h5 class="review-headline">Great Product</h5>
+                    <p class="review-text">
+                        The Zenith Modern Chair is a game-changer for my workspace. Its minimalist design fits perfectly
+                        with my aesthetic, and the durable materials make it a worthwhile investment... <a href="#"
+                            class="read-more">Read more</a>
+                    </p>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-info">
+                            <img src="assets/r-4.svg" alt="Kendall Mckernan" class="avatar">
+                            <div>
+                                <h4 class="user-name">Kendall Mckernan</h4>
+                                <span class="review-date">July, 23 2020</span>
+                            </div>
+                        </div>
+                        <img src="assets/rating.svg" alt="Rating" class="review-stars">
+                    </div>
+                    <h5 class="review-headline">Great Product</h5>
+                    <p class="review-text">
+                        I can't get enough of my new Luminous Lounge Sofa! The reclining seats and headrests make it
+                        perfect for movie nights, and the sleek design adds a touch of sophistication to... <a href="#"
+                            class="read-more">Read more</a>
+                    </p>
+                </div>
+
             </div>
 
         </div>
+    </section>
+    <!-- ================= FAQ SECTION ================= -->
+    <section class="faq-section">
+        <div class="faq-container">
+            <!-- Section Header -->
+            <div class="faq-header">
+                <h2 class="faq-title">FREQUENT QUESTION ANSWERS</h2>
+                <p class="faq-subtitle">SOLVE ALL YOUR PROBLEM ABOUT OUR PRODUCTS</p>
+            </div>
 
-    </div>
-</section>
-<!-- ================= FAQ SECTION ================= -->
-<section class="faq-section">
-    <div class="faq-container">
-        <!-- Section Header -->
-        <div class="faq-header">
-            <h2 class="faq-title">FREQUENT QUESTION ANSWERS</h2>
-            <p class="faq-subtitle">SOLVE ALL YOUR PROBLEM ABOUT OUR PRODUCTS</p>
+            <!-- Accordion List -->
+            <div class="faq-accordion-list">
+
+                <!-- Question 1 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>1. What payment methods do you accept?</span>
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>We accept major credit/debit cards (Visa, MasterCard, American Express), PayPal, Apple Pay,
+                            and Google Pay. We also offer flexible Buy Now, Pay Later options through Klarna and Affirm
+                            at checkout.</p>
+                    </div>
+                </details>
+
+                <!-- Question 2 (Open by default as shown in Figma) -->
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <span>2. Do you offer free shipping?</span>
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes, we offer free standard shipping on all orders over a certain amount within the
+                            continental United States. For orders below that amount or for expedited shipping options,
+                            additional fees may apply.</p>
+                    </div>
+                </details>
+
+                <!-- Question 3 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>3. How long does it take for delivery?</span>
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Standard delivery typically takes 3 to 7 business days depending on your location. Large
+                            furniture items requiring freight shipping may take 1 to 2 weeks, and tracking details will
+                            be provided once shipped.</p>
+                    </div>
+                </details>
+
+                <!-- Question 4 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>4. What is your return policy?</span>
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>We offer a 30-day risk-free return policy. If you are not completely satisfied with your
+                            purchase, you can return it within 30 days of delivery in its original condition and
+                            packaging for a full refund or exchange.</p>
+                    </div>
+                </details>
+
+                <!-- Question 5 -->
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>5. Do you offer assembly or installation services?</span>
+                        <span class="faq-icon"></span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes! We offer optional White Glove Assembly Services at checkout for larger furniture pieces.
+                            Our delivery team will assemble the item in your room of choice and remove all packaging
+                            materials.</p>
+                    </div>
+                </details>
+
+            </div>
         </div>
-
-        <!-- Accordion List -->
-        <div class="faq-accordion-list">
-            
-            <!-- Question 1 -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    <span>1. What payment methods do you accept?</span>
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>We accept major credit/debit cards (Visa, MasterCard, American Express), PayPal, Apple Pay, and Google Pay. We also offer flexible Buy Now, Pay Later options through Klarna and Affirm at checkout.</p>
-                </div>
-            </details>
-
-            <!-- Question 2 (Open by default as shown in Figma) -->
-            <details class="faq-item" open>
-                <summary class="faq-question">
-                    <span>2. Do you offer free shipping?</span>
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Yes, we offer free standard shipping on all orders over a certain amount within the continental United States. For orders below that amount or for expedited shipping options, additional fees may apply.</p>
-                </div>
-            </details>
-
-            <!-- Question 3 -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    <span>3. How long does it take for delivery?</span>
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Standard delivery typically takes 3 to 7 business days depending on your location. Large furniture items requiring freight shipping may take 1 to 2 weeks, and tracking details will be provided once shipped.</p>
-                </div>
-            </details>
-
-            <!-- Question 4 -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    <span>4. What is your return policy?</span>
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>We offer a 30-day risk-free return policy. If you are not completely satisfied with your purchase, you can return it within 30 days of delivery in its original condition and packaging for a full refund or exchange.</p>
-                </div>
-            </details>
-
-            <!-- Question 5 -->
-            <details class="faq-item">
-                <summary class="faq-question">
-                    <span>5. Do you offer assembly or installation services?</span>
-                    <span class="faq-icon"></span>
-                </summary>
-                <div class="faq-answer">
-                    <p>Yes! We offer optional White Glove Assembly Services at checkout for larger furniture pieces. Our delivery team will assemble the item in your room of choice and remove all packaging materials.</p>
-                </div>
-            </details>
-
-        </div>
-    </div>
-</section>
-<footer>
+    </section>
+    <footer>
         <div class="footer-container">
             <div class="footer-links">
                 <div class="footer-column">

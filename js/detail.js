@@ -103,4 +103,35 @@ if (!selectedProduct) {
 
         });
     }
+    // Add to Cart
+    const addToCartBtn = document.getElementById("detail-add-to-cart");
+
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", () => {
+            for (let i = 0; i < quantity; i++) {
+                addToCart(selectedProduct);
+            }
+
+            const originalText = addToCartBtn.textContent;
+            addToCartBtn.textContent = "Added ✓";
+            addToCartBtn.classList.add("added");
+
+            setTimeout(() => {
+                addToCartBtn.textContent = originalText;
+                addToCartBtn.classList.remove("added");
+            }, 1000);
+        });
+    }
 }
+    const addToCartBtn = document.getElementById("detail-add-to-cart");
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener("click", () => {
+            for (let i = 0; i < quantity; i++) {
+                addToCart(selectedProduct);
+            }
+            addToCartBtn.textContent = "Added ✓";
+            setTimeout(() => {
+                addToCartBtn.textContent = "Add to Cart";
+            }, 1000);
+        });
+    }

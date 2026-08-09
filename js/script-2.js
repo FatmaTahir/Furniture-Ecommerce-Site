@@ -22,7 +22,7 @@ function getPriceNumber(priceStr) {
 function displaySearchProducts(items) {
     searchGrid.innerHTML = items.map(product => `
         <div class="card">
-            <a href="detail.html?id=${product.id}" class="card-link">
+            <a href="product-detail.html?id=${product.id}" class="card-link">
                 <div class="card-img-wrapper">
                     <img src="${product.img}" alt="${product.name}">
                 </div>

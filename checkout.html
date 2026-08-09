@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Payment - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/logo.svg" alt="FURNITUR Logo"></a>
+            </div>
+            <div class="search-bar">
+                <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+                <input type="text" placeholder="Search something">
+            </div>
+            <ul class="nav-items-text">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <a href="cart.html" class="cart-link">
+                        <span class="cart-icon-wrap">
+                            <img src="assets/cart-icon.svg" alt="Cart">
+                            <span class="cart-count">0</span>
+                        </span>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="cart-page-main">
+
+        <!-- Title -->
+        <div class="cart-hero">
+            <h1 class="cart-page-title">SHIPPING & PAYMENT</h1>
+            <p class="cart-page-subtitle">CHOOSE THE PAYMENT AND SHIPPING METHOD YOU WANT</p>
+        </div>
+
+        <!-- Step Tracker -->
+        <div class="cart-steps">
+            <a href="cart.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/lock.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">CART</span>
+                <span class="step-desc">Review all your product<br>and edit the number.</span>
+            </a>
+            <div class="cart-step active">
+                <div class="step-icon">
+                    <img src="assets/contact.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">CUSTOMER INFORMATION</span>
+                <span class="step-desc">Add your name, phone<br>number and address.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/card.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">SHIPPING & PAYMENT</span>
+                <span class="step-desc">With many payment<br>method, included yours.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/eye.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">REVIEW</span>
+                <span class="step-desc">View all your information<br>before the confirmation.</span>
+            </div>
+        </div>
+
+        <div class="checkout-layout">
+
+            <!-- Left: Info Form -->
+            <div class="checkout-form-wrapper">
+                <h2 class="checkout-section-title">YOUR INFORMATION</h2>
+                <p class="checkout-section-subtitle">Add your name, phone number and address.</p>
+
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your first name</label>
+                            <input type="text" placeholder="Your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your last name</label>
+                            <input type="text" placeholder="Your last name" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your email</label>
+                            <input type="email" placeholder="Your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone number</label>
+                            <input type="tel" placeholder="Phone number" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row three-col">
+                        <div class="form-group">
+                            <label>County</label>
+                            <input type="text" placeholder="County">
+                        </div>
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" placeholder="City">
+                        </div>
+                        <div class="form-group">
+                            <label>ZIP Code</label>
+                            <input type="text" placeholder="ZIP Code">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <label>Address details</label>
+                            <input type="text" placeholder="Address details">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="checkout-order-wrapper">
+                <h3 class="checkout-section-title">YOUR ORDER</h3>
+                <p class="checkout-section-subtitle">Review all the products you want to buy</p>
+
+                <div class="order-items-list" id="orderItemsList"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="orderSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                </div>
+                <hr>
+                <div class="summary-row">
+                    <span>Price</span>
+                    <span id="orderPrice">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount</span>
+                    <span id="orderDiscount">$0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total Price</span>
+                    <span id="orderTotal">$0.00</span>
+                </div>
+
+                <button class="btn-checkout" id="continueShippingBtn">CONTINUE TO SHIPPING</button>
+            </div>
+
+        </div>
+    </main>
+
+    <section>
+        <div class="choose-text">
+            <h4>WHY CHOOSE US</h4>
+        </div>
+        <div class="why-choose-us">
+            <img src="assets/why-1.svg" alt="" srcset="">
+            <img src="assets/why-2.svg" alt="" srcset="">
+            <img src="assets/why-3.svg" alt="" srcset="">
+        </div>
+        <div class="why-choose-us-reverse">
+            <img src="assets/why-4.svg" alt="" srcset="">
+            <img src="assets/why-5.svg" alt="" srcset="">
+            <img src="assets/why-6.svg" alt="" srcset="">
+        </div>
+    </section>
+    <footer>
+    <div class="footer-container">
+        
+        <!-- Top Links Grid -->
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4>CUSTOMER SERVICE</h4>
+                <ul>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">Return & Refund</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Customs and Taxes</a></li>
+                    <li><a href="#">Customers's Reviews</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>COMPANY</h4>
+                <ul>
+                    <li><a href="#">About Japan with love</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Special Deals & Offers</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>HELP CENTER</h4>
+                <ul>
+                    <li><a href="#">Order Information</a></li>
+                    <li><a href="#">Shipping Options</a></li>
+                    <li><a href="#">International Shipping</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>RETURN & WARRANTY</h4>
+                <ul>
+                    <li><a href="#">Returns & Exchange Policy</a></li>
+                    <li><a href="#">Returns Center</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">Warranty Registration</a></li>
+                    <li><a href="#">Warranty Repair Center</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+            <div class="footer-socials">
+                <img src="assets/footer-logos.svg" alt="Social Media Links">
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+    <script>
+        const orderItemsList = document.getElementById("orderItemsList");
+        const orderSubtotalEl = document.getElementById("orderSubtotal");
+        const orderPriceEl = document.getElementById("orderPrice");
+        const orderDiscountEl = document.getElementById("orderDiscount");
+        const orderTotalEl = document.getElementById("orderTotal");
+
+        function renderOrderSummary() {
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                orderItemsList.innerHTML = `<p class="empty-order-msg">Your cart is empty. <a href="search-results.html">Continue shopping →</a></p>`;
+                orderSubtotalEl.textContent = "$0.00";
+                orderPriceEl.textContent = "$0.00";
+                orderDiscountEl.textContent = "$0.00";
+                orderTotalEl.textContent = "$0.00";
+                return;
+            }
+
+            orderItemsList.innerHTML = cart.map(item => {
+                const price = parseFloat(item.price.replace("$", ""));
+                const lineTotal = (price * item.qty).toFixed(2);
+
+                return `
+                    <div class="order-item-row">
+                        <div class="order-item-img-wrapper">
+                            <img src="${item.img}" alt="${item.name}">
+                        </div>
+                        <div class="order-item-info">
+                            <h4>${item.name}</h4>
+                            <p class="order-item-qty">${item.qty} item${item.qty > 1 ? "s" : ""}</p>
+                            <p class="order-item-price">$${lineTotal}</p>
+                        </div>
+                    </div>
+                `;
+            }).join("");
+
+            const subtotal = getCartTotal();
+            const discount = 0;
+            const total = subtotal - discount;
+
+            orderSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderPriceEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderDiscountEl.textContent = `-$${discount.toFixed(2)}`;
+            orderTotalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        document.getElementById("continueShippingBtn").addEventListener("click", (e) => {
+            e.preventDefault();
+            const form = document.getElementById("checkoutForm");
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            alert("Proceeding to the next step (payment) — build that page next!");
+        });
+
+        document.addEventListener("DOMContentLoaded", renderOrderSummary);
+    </script>
+</body>
+
+</html>

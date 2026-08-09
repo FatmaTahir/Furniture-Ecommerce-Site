@@ -39,46 +39,153 @@
     </header>
 
     <main class="cart-page-main">
-        <div class="breadcrumb-container">
-            <p class="breadcrumb">Home / <span>Your Cart</span></p>
+
+        <!-- Title -->
+        <div class="cart-hero">
+            <h1 class="cart-page-title">SHOPPING CART</h1>
+            <p class="cart-page-subtitle">THIS IS YOUR CART BASED ON WHAT YOU WANTED TO BUY</p>
         </div>
 
-        <h1 class="cart-page-title">SHOPPING CART</h1>
+        <!-- Step Tracker -->
+        <div class="cart-steps">
+            <div class="cart-step active">
+                <div class="step-icon">
+                    <img src="assets/lock.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">CART</span>
+                <span class="step-desc">Review all your product<br>and edit the number.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/contact.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">CUSTOMER INFORMATION</span>
+                <span class="step-desc">Add your name, phone<br>number and address.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/card.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">SHIPPING & PAYMENT</span>
+                <span class="step-desc">With many payment<br>method, included yours.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/eye.svg" alt="" srcset="">
+                </div>
+                <span class="step-label">REVIEW</span>
+                <span class="step-desc">View all your information<br>before the confirmation.</span>
+            </div>
+        </div>
 
         <div class="cart-page-layout">
             <!-- Cart Items -->
             <div class="cart-items-container" id="cartItemsContainer"></div>
 
-            <p id="emptyCartMsg" style="display:none; padding: 40px 0; text-align:center; font-size: 16px;">
-                Your cart is empty. <a href="search-result.html">Continue shopping →</a>
+            <p id="emptyCartMsg" style="display:none; padding: 40px 0; text-align:center; font-size: 13px;">
+                Your cart is empty. <a href="search-results.html">Continue shopping →</a>
             </p>
 
             <!-- Summary -->
             <div class="cart-summary">
                 <h3>ORDER SUMMARY</h3>
+                <p class="summary-subtitle">Apply your monthly voucher to get more discount!</p>
+
+                <input type="text" class="voucher-input" placeholder="Your voucher code">
+
                 <div class="summary-row">
-                    <span>Subtotal</span>
+                    <span>Price</span>
                     <span id="cartSubtotal">$0.00</span>
                 </div>
                 <div class="summary-row">
-                    <span>Shipping</span>
-                    <span>Free</span>
+                    <span>Discount</span>
+                    <span>$0.00</span>
                 </div>
                 <hr>
                 <div class="summary-row total-row">
-                    <span>Total</span>
+                    <span>Total Price</span>
                     <span id="cartTotal">$0.00</span>
                 </div>
-                <button class="btn-checkout">PROCEED TO CHECKOUT</button>
+
+                <textarea class="summary-notes" rows="3" placeholder="Write your notes here..."></textarea>
+                <a href="checkout.html" class="btn-checkout">PROCEED TO CHECKOUT</a>
             </div>
         </div>
     </main>
+    <section>
+        <div class="choose-text">
+            <h4>WHY CHOOSE US</h4>
+        </div>
+        <div class="why-choose-us">
+            <img src="assets/why-1.svg" alt="" srcset="">
+            <img src="assets/why-2.svg" alt="" srcset="">
+            <img src="assets/why-3.svg" alt="" srcset="">
+        </div>
+        <div class="why-choose-us-reverse">
+            <img src="assets/why-4.svg" alt="" srcset="">
+            <img src="assets/why-5.svg" alt="" srcset="">
+            <img src="assets/why-6.svg" alt="" srcset="">
+        </div>
+    </section>
 
     <footer>
         <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Customs and Taxes</a></li>
+                        <li><a href="#">Customers's Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Japan with love</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Special Deals & Offers</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>HELP CENTER</h4>
+                    <ul>
+                        <li><a href="#">Order Information</a></li>
+                        <li><a href="#">Shipping Options</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>RETURN & WARRANTY</h4>
+                    <ul>
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Returns Center</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Warranty Registration</a></li>
+                        <li><a href="#">Warranty Repair Center</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider Line -->
+            <hr class="footer-divider">
+
+            <!-- Bottom Copyright Row -->
             <div class="footer-bottom">
                 <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+                <div class="footer-socials">
+                    <img src="assets/footer-logos.svg" alt="Social Media Links">
+                </div>
             </div>
+
         </div>
     </footer>
 
@@ -107,18 +214,26 @@
 
                 return `
                     <div class="cart-row" data-id="${item.id}">
-                        <img src="${item.img}" alt="${item.name}" class="cart-item-img">
-                        <div class="cart-item-info">
-                            <h4>${item.name}</h4>
-                            <p class="cart-item-price">${item.price}</p>
+                        <div class="cart-item-img-wrapper">
+                            <img src="${item.img}" alt="${item.name}" class="cart-item-img">
                         </div>
-                        <div class="cart-qty-controls">
-                            <button class="cart-qty-btn cart-qty-minus" data-id="${item.id}">-</button>
-                            <span>${item.qty}</span>
-                            <button class="cart-qty-btn cart-qty-plus" data-id="${item.id}">+</button>
+
+                        <div class="cart-item-main">
+                            <div class="cart-item-top">
+                                <h4>${item.name}</h4>
+                                <button class="cart-remove-btn" data-id="${item.id}">✕</button>
+                            </div>
+                            <div class="cart-item-stars">★★★★★</div>
+
+                            <div class="cart-item-bottom">
+                                <div class="cart-qty-controls">
+                                    <button class="cart-qty-btn cart-qty-minus" data-id="${item.id}">-</button>
+                                    <span>Number: ${item.qty}</span>
+                                    <button class="cart-qty-btn cart-qty-plus" data-id="${item.id}">+</button>
+                                </div>
+                                <div class="cart-line-total">$${lineTotal}</div>
+                            </div>
                         </div>
-                        <div class="cart-line-total">$${lineTotal}</div>
-                        <button class="cart-remove-btn" data-id="${item.id}">✕</button>
                     </div>
                 `;
             }).join("");
