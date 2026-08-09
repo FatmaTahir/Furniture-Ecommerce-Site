@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -138,7 +139,7 @@
 
         </div>
     </main>
-     <section>
+    <section>
         <div class="choose-text">
             <h4>WHY CHOOSE US</h4>
         </div>
@@ -214,7 +215,7 @@
 
         </div>
     </footer>
-    
+
 
     <script>
         // ===== Load saved data =====
@@ -236,7 +237,9 @@
                     <p class="review-meta">${customerInfo.phone || "No phone provided"}</p>
                     <p class="review-meta">${addressLine}</p>
                 </div>
-                <a href="checkout.html" class="review-edit-link">✎</a>
+                <a href="checkout.html" class="review-edit-link">
+                                     <img src="assets/edit-2.svg"/></div>
+</a>
             </div>
             <hr class="review-divider">
             <div class="review-box-bottom">
@@ -254,23 +257,30 @@
         if (paymentInfo.method === "paypal") {
             paymentReviewBox.innerHTML = `
                 <div class="review-box-top payment-row">
-                    <div class="payment-icon-badge">P</div>
+                    <div class="payment-icon-badge">
+                         <img src="assets/paypal-2.svg"/></div>
                     <div>
                         <p class="review-name">Paypal</p>
                         <p class="review-meta">${paymentInfo.email || "No email provided"}</p>
                     </div>
-                    <a href="shipping.html" class="review-edit-link">✎</a>
+                    <a href="shipping.html" class="review-edit-link">
+                 <img src="assets/edit.svg"/></div>
+</a>
                 </div>
             `;
         } else {
             paymentReviewBox.innerHTML = `
                 <div class="review-box-top payment-row">
-                    <div class="payment-icon-badge card">💳</div>
+                    <div class="payment-icon-badge card">
+                    <img src="assets/paypal.svg"/>
+                        </div>
                     <div>
                         <p class="review-name">Credit Card</p>
                         <p class="review-meta">**** ${paymentInfo.last4 || "0000"} · ${paymentInfo.nameOnCard || "Card Holder"}</p>
                     </div>
-                    <a href="shipping.html" class="review-edit-link">✎</a>
+                    <a href="shipping.html" class="review-edit-link">
+                                         <img src="assets/edit.svg"/></div>
+</a>
                 </div>
             `;
         }
@@ -332,4 +342,5 @@
         document.addEventListener("DOMContentLoaded", renderOrderSummary);
     </script>
 </body>
+
 </html>
