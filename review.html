@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Confirmation - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/logo.svg" alt="FURNITUR Logo"></a>
+            </div>
+            <div class="search-bar">
+                <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+                <input type="text" placeholder="Search something">
+            </div>
+            <ul class="nav-items-text">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <a href="cart.html" class="cart-link">
+                        <span class="cart-icon-wrap">
+                            <img src="assets/cart-icon.svg" alt="Cart">
+                            <span class="cart-count">0</span>
+                        </span>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="cart-page-main">
+
+        <!-- Title -->
+        <div class="cart-hero">
+            <h1 class="cart-page-title">REVIEW AND CONFIRMATION</h1>
+            <p class="cart-page-subtitle">LOOKBACK ONE MORE TIME TO CONFIRM YOUR ADDRESS AND ALL YOUR PRODUCTS</p>
+        </div>
+
+        <!-- Step Tracker -->
+        <div class="cart-steps">
+            <a href="cart.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/lock.svg" alt="">
+                </div>
+                <span class="step-label">CART</span>
+                <span class="step-desc">Review all your product<br>and edit the number.</span>
+            </a>
+            <a href="checkout.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/contact.svg" alt="">
+                </div>
+                <span class="step-label">CUSTOMER INFORMATION</span>
+                <span class="step-desc">Add your name, phone<br>number and address.</span>
+            </a>
+            <a href="shipping.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/card.svg" alt="">
+                </div>
+                <span class="step-label">SHIPPING & PAYMENT</span>
+                <span class="step-desc">With many payment<br>method, included yours.</span>
+            </a>
+            <div class="cart-step active">
+                <div class="step-icon">
+                    <img src="assets/eye.svg" alt="">
+                </div>
+                <span class="step-label">REVIEW</span>
+                <span class="step-desc">View all your information<br>before the confirmation.</span>
+            </div>
+        </div>
+
+        <div class="checkout-layout">
+
+            <!-- Left: Shipping + Payment summary -->
+            <div class="checkout-form-wrapper">
+
+                <h2 class="checkout-section-title">SHIPPING INFORMATION</h2>
+                <p class="checkout-section-subtitle">Please check before you finalize your order</p>
+
+                <div class="review-box" id="shippingReviewBox">
+                    <!-- filled by JS -->
+                </div>
+
+                <h2 class="checkout-section-title payment-title">PAYMENT METHOD</h2>
+                <p class="checkout-section-subtitle">Please check before you finalize your order</p>
+
+                <div class="review-box light" id="paymentReviewBox">
+                    <!-- filled by JS -->
+                </div>
+
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="checkout-order-wrapper">
+                <h3 class="checkout-section-title">YOUR ORDER</h3>
+                <p class="checkout-section-subtitle">Review all the products you want to buy</p>
+
+                <div class="order-items-list" id="orderItemsList"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="orderSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="orderShipping">Free</span>
+                </div>
+                <hr>
+                <div class="summary-row">
+                    <span>Price</span>
+                    <span id="orderPrice">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount</span>
+                    <span id="orderDiscount">$0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total Price</span>
+                    <span id="orderTotal">$0.00</span>
+                </div>
+
+                <button class="btn-checkout" id="confirmOrderBtn">CONFIRM MY ORDER</button>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Load saved data =====
+        const customerInfo = JSON.parse(localStorage.getItem("furnitureCustomerInfo") || "{}");
+        const shippingInfo = JSON.parse(localStorage.getItem("furnitureShippingInfo") || "{}");
+        const paymentInfo = JSON.parse(localStorage.getItem("furniturePaymentInfo") || "{}");
+
+        // ===== Render shipping info box =====
+        const shippingReviewBox = document.getElementById("shippingReviewBox");
+
+        const fullName = `${customerInfo.firstName || ""} ${customerInfo.lastName || ""}`.trim() || "No name provided";
+        const addressLine = [customerInfo.address, customerInfo.city, customerInfo.county, customerInfo.zip]
+            .filter(Boolean).join(", ") || "No address provided";
+
+        shippingReviewBox.innerHTML = `
+            <div class="review-box-top">
+                <div>
+                    <p class="review-name">${fullName}</p>
+                    <p class="review-meta">${customerInfo.phone || "No phone provided"}</p>
+                    <p class="review-meta">${addressLine}</p>
+                </div>
+                <a href="checkout.html" class="review-edit-link">✎</a>
+            </div>
+            <hr class="review-divider">
+            <div class="review-box-bottom">
+                <div>
+                    <p class="review-name">${shippingInfo.name || "No shipping method selected"}</p>
+                    <p class="review-meta">${shippingInfo.meta || ""}</p>
+                </div>
+                <span class="review-shipping-price">${shippingInfo.price ? `$${shippingInfo.price.toFixed(2)}` : "Free shipping"}</span>
+            </div>
+        `;
+
+        // ===== Render payment info box =====
+        const paymentReviewBox = document.getElementById("paymentReviewBox");
+
+        if (paymentInfo.method === "paypal") {
+            paymentReviewBox.innerHTML = `
+                <div class="review-box-top payment-row">
+                    <div class="payment-icon-badge">P</div>
+                    <div>
+                        <p class="review-name">Paypal</p>
+                        <p class="review-meta">${paymentInfo.email || "No email provided"}</p>
+                    </div>
+                    <a href="shipping.html" class="review-edit-link">✎</a>
+                </div>
+            `;
+        } else {
+            paymentReviewBox.innerHTML = `
+                <div class="review-box-top payment-row">
+                    <div class="payment-icon-badge card">💳</div>
+                    <div>
+                        <p class="review-name">Credit Card</p>
+                        <p class="review-meta">**** ${paymentInfo.last4 || "0000"} · ${paymentInfo.nameOnCard || "Card Holder"}</p>
+                    </div>
+                    <a href="shipping.html" class="review-edit-link">✎</a>
+                </div>
+            `;
+        }
+
+        // ===== Order summary (reused pattern) =====
+        const orderItemsList = document.getElementById("orderItemsList");
+        const orderSubtotalEl = document.getElementById("orderSubtotal");
+        const orderShippingEl = document.getElementById("orderShipping");
+        const orderPriceEl = document.getElementById("orderPrice");
+        const orderDiscountEl = document.getElementById("orderDiscount");
+        const orderTotalEl = document.getElementById("orderTotal");
+
+        function renderOrderSummary() {
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                orderItemsList.innerHTML = `<p class="empty-order-msg">Your cart is empty. <a href="search-results.html">Continue shopping →</a></p>`;
+            } else {
+                orderItemsList.innerHTML = cart.map(item => {
+                    const price = parseFloat(item.price.replace("$", ""));
+                    const lineTotal = (price * item.qty).toFixed(2);
+
+                    return `
+                        <div class="order-item-row">
+                            <div class="order-item-img-wrapper">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <div class="order-item-info">
+                                <h4>${item.name}</h4>
+                                <p class="order-item-qty">${item.qty} item${item.qty > 1 ? "s" : ""}</p>
+                                <p class="order-item-price">$${lineTotal}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            const subtotal = getCartTotal();
+            const discount = 0;
+            const shippingCost = shippingInfo.price || 0;
+            const total = subtotal - discount + shippingCost;
+
+            orderSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderShippingEl.textContent = shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`;
+            orderPriceEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderDiscountEl.textContent = `-$${discount.toFixed(2)}`;
+            orderTotalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        document.getElementById("confirmOrderBtn").addEventListener("click", () => {
+            localStorage.removeItem(CART_KEY);
+            localStorage.removeItem("furnitureCustomerInfo");
+            localStorage.removeItem("furnitureShippingInfo");
+            localStorage.removeItem("furniturePaymentInfo");
+            alert("Order confirmed! Thank you for shopping with FURNITUR.");
+            window.location.href = "index.html";
+        });
+
+        document.addEventListener("DOMContentLoaded", renderOrderSummary);
+    </script>
+</body>
+</html>

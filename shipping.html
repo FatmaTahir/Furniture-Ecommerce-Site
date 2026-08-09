@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping & Payment - FURNITUR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/cart.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo">
+                <a href="index.html"><img src="assets/logo.svg" alt="FURNITUR Logo"></a>
+            </div>
+            <div class="search-bar">
+                <img src="assets/search-icon.svg" alt="Search" class="search-icon">
+                <input type="text" placeholder="Search something">
+            </div>
+            <ul class="nav-items-text">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="#">SHOP <span class="arrow">▾</span></a></li>
+                <li><a href="#">BLOG</a></li>
+                <li><a href="#">ABOUT US</a></li>
+            </ul>
+            <ul class="nav-items-right">
+                <li class="nav-item-link">
+                    <img src="assets/heart-icon.svg" alt="Love">
+                    <span>LOVE</span>
+                </li>
+                <li class="nav-item-link">
+                    <a href="cart.html" class="cart-link">
+                        <span class="cart-icon-wrap">
+                            <img src="assets/cart-icon.svg" alt="Cart">
+                            <span class="cart-count">0</span>
+                        </span>
+                        <span>CART</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="cart-page-main">
+
+        <!-- Title -->
+        <div class="cart-hero">
+            <h1 class="cart-page-title">CUSTOMER INFORMATION</h1>
+            <p class="cart-page-subtitle">PROVIDE YOUR RECEIVED INFORMATIONS TO COMPLETE THE PROCESS</p>
+        </div>
+
+        <!-- Step Tracker -->
+        <div class="cart-steps">
+            <a href="cart.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/lock.svg" alt="">
+                </div>
+                <span class="step-label">CART</span>
+                <span class="step-desc">Review all your product<br>and edit the number.</span>
+            </a>
+            <a href="checkout.html" class="cart-step completed">
+                <div class="step-icon">
+                    <img src="assets/contact.svg" alt="">
+                </div>
+                <span class="step-label">CUSTOMER INFORMATION</span>
+                <span class="step-desc">Add your name, phone<br>number and address.</span>
+            </a>
+            <div class="cart-step active">
+                <div class="step-icon">
+                    <img src="assets/card.svg" alt="">
+                </div>
+                <span class="step-label">SHIPPING & PAYMENT</span>
+                <span class="step-desc">With many payment<br>method, included yours.</span>
+            </div>
+            <div class="cart-step">
+                <div class="step-icon">
+                    <img src="assets/eye.svg" alt="">
+                </div>
+                <span class="step-label">REVIEW</span>
+                <span class="step-desc">View all your information<br>before the confirmation.</span>
+            </div>
+        </div>
+
+        <div class="checkout-layout">
+
+            <!-- Left: Shipping + Payment -->
+            <div class="checkout-form-wrapper">
+
+                <h2 class="checkout-section-title">SHIPPING SERVICE</h2>
+                <p class="checkout-section-subtitle">Choose one best shipping service across your needs.</p>
+
+                <div class="shipping-options" id="shippingOptions">
+                    <label class="shipping-option selected" data-price="0">
+                        <div class="option-left">
+                            <input type="radio" name="shipping" value="dhl" checked>
+                            <div>
+                                <span class="option-name">DHL Express</span>
+                                <span class="option-meta">Estimated delivery time: Jul 20 - Aug 03</span>
+                            </div>
+                        </div>
+                        <span class="option-price free">Free shipping</span>
+                    </label>
+
+                    <label class="shipping-option" data-price="25">
+                        <div class="option-left">
+                            <input type="radio" name="shipping" value="fedex">
+                            <div>
+                                <span class="option-name">FedEx</span>
+                                <span class="option-meta">Estimated delivery time: Jul 20 - Aug 03</span>
+                            </div>
+                        </div>
+                        <span class="option-price">$25.00</span>
+                    </label>
+
+                    <label class="shipping-option" data-price="35">
+                        <div class="option-left">
+                            <input type="radio" name="shipping" value="express">
+                            <div>
+                                <span class="option-name">Express Expedition</span>
+                                <span class="option-meta">Estimated delivery time: Jul 20 - Aug 03</span>
+                            </div>
+                        </div>
+                        <span class="option-price">$35.00</span>
+                    </label>
+
+                    <label class="shipping-option" data-price="35">
+                        <div class="option-left">
+                            <input type="radio" name="shipping" value="jne">
+                            <div>
+                                <span class="option-name">JNE Express</span>
+                                <span class="option-meta">Estimated delivery time: Jul 20 - Aug 03</span>
+                            </div>
+                        </div>
+                        <span class="option-price">$35.00</span>
+                    </label>
+
+                    <label class="shipping-option" data-price="35">
+                        <div class="option-left">
+                            <input type="radio" name="shipping" value="pos">
+                            <div>
+                                <span class="option-name">POS Indonesia</span>
+                                <span class="option-meta">Estimated delivery time: Jul 20 - Aug 03</span>
+                            </div>
+                        </div>
+                        <span class="option-price">$35.00</span>
+                    </label>
+                </div>
+                <h2 class="checkout-section-title payment-title">PAYMENT METHOD</h2>
+                <p class="checkout-section-subtitle">Choose what service you want for your transaction</p>
+
+                <div class="payment-options" id="paymentOptions">
+                    <label class="payment-option selected" data-method="card">
+                        <input type="radio" name="payment" value="card" checked>
+                        <div class="payment-option-top">
+                            <span class="payment-option-name">Credit Card</span>
+
+                            <img class="payment-option-badges" src="assets/paypal.svg" alt="" srcset="">
+
+
+                            <img class="payment-option-badges" src="assets/visa.svg" alt="" srcset="">
+                        </div>
+                        <p class="payment-option-desc">You can use all credit card service. We can accept Visa and
+                            Master Card.</p>
+                    </label>
+
+                    <label class="payment-option" data-method="paypal">
+                        <input type="radio" name="payment" value="paypal">
+                        <div class="payment-option-top">
+                            <span class="payment-option-name">Paypal</span>
+                            <img class="payment-option-badges" src="assets/paypal-2.svg" alt="" srcset="">
+                        </div>
+                        <p class="payment-option-desc">Insert your account email of paypal. We will process your
+                            payment.</p>
+                    </label>
+                </div>
+
+                <div class="card-details" id="cardDetails">
+                    <p class="card-details-label">Provide your information</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="Name on card">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Card number">
+                        </div>
+                    </div>
+                    <div class="form-row three-col">
+                        <div class="form-group">
+                            <input type="text" placeholder="Month">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Year">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="CVV">
+                        </div>
+                    </div>
+                </div>
+                <div class="paypal-details" id="paypalDetails" style="display: none;">
+                    <p class="card-details-label">Provide your information</p>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <input type="email" placeholder="Your Paypal account email">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Order Summary -->
+            <div class="checkout-order-wrapper">
+                <h3 class="checkout-section-title">YOUR ORDER</h3>
+                <p class="checkout-section-subtitle">Review all the products you want to buy</p>
+
+                <div class="order-items-list" id="orderItemsList"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="orderSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="orderShipping">Free</span>
+                </div>
+                <hr>
+                <div class="summary-row">
+                    <span>Price</span>
+                    <span id="orderPrice">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Discount</span>
+                    <span id="orderDiscount">$0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total Price</span>
+                    <span id="orderTotal">$0.00</span>
+                </div>
+
+                <button class="btn-checkout" id="reviewOrderBtn">REVIEW YOUR ORDER</button>
+            </div>
+
+        </div>
+    </main>
+    <section>
+        <div class="choose-text">
+            <h4>WHY CHOOSE US</h4>
+        </div>
+        <div class="why-choose-us">
+            <img src="assets/why-1.svg" alt="" srcset="">
+            <img src="assets/why-2.svg" alt="" srcset="">
+            <img src="assets/why-3.svg" alt="" srcset="">
+        </div>
+        <div class="why-choose-us-reverse">
+            <img src="assets/why-4.svg" alt="" srcset="">
+            <img src="assets/why-5.svg" alt="" srcset="">
+            <img src="assets/why-6.svg" alt="" srcset="">
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+
+            <!-- Top Links Grid -->
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">Return & Refund</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Customs and Taxes</a></li>
+                        <li><a href="#">Customers's Reviews</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="#">About Japan with love</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Special Deals & Offers</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>HELP CENTER</h4>
+                    <ul>
+                        <li><a href="#">Order Information</a></li>
+                        <li><a href="#">Shipping Options</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>RETURN & WARRANTY</h4>
+                    <ul>
+                        <li><a href="#">Returns & Exchange Policy</a></li>
+                        <li><a href="#">Returns Center</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Warranty Registration</a></li>
+                        <li><a href="#">Warranty Repair Center</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="footer-bottom">
+                <p class="copyright">Furnitur © Copyright 2020, Inc. All rights reserved</p>
+                <div class="footer-socials">
+                    <img src="assets/footer-logos.svg" alt="Social Media Links">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        const orderItemsList = document.getElementById("orderItemsList");
+        const orderSubtotalEl = document.getElementById("orderSubtotal");
+        const orderShippingEl = document.getElementById("orderShipping");
+        const orderPriceEl = document.getElementById("orderPrice");
+        const orderDiscountEl = document.getElementById("orderDiscount");
+        const orderTotalEl = document.getElementById("orderTotal");
+
+        let selectedShippingCost = 0;
+
+        function renderOrderSummary() {
+            const cart = getCart();
+
+            if (cart.length === 0) {
+                orderItemsList.innerHTML = `<p class="empty-order-msg">Your cart is empty. <a href="search-results.html">Continue shopping →</a></p>`;
+            } else {
+                orderItemsList.innerHTML = cart.map(item => {
+                    const price = parseFloat(item.price.replace("$", ""));
+                    const lineTotal = (price * item.qty).toFixed(2);
+
+                    return `
+                        <div class="order-item-row">
+                            <div class="order-item-img-wrapper">
+                                <img src="${item.img}" alt="${item.name}">
+                            </div>
+                            <div class="order-item-info">
+                                <h4>${item.name}</h4>
+                                <p class="order-item-qty">${item.qty} item${item.qty > 1 ? "s" : ""}</p>
+                                <p class="order-item-price">$${lineTotal}</p>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
+            }
+
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const subtotal = getCartTotal();
+            const discount = 0;
+            const shippingCost = selectedShippingCost;
+            const total = subtotal - discount + shippingCost;
+
+            orderSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderShippingEl.textContent = shippingCost === 0 ? "Free" : `$${shippingCost.toFixed(2)}`;
+            orderPriceEl.textContent = `$${subtotal.toFixed(2)}`;
+            orderDiscountEl.textContent = `-$${discount.toFixed(2)}`;
+            orderTotalEl.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // ===== Shipping option selection =====
+        const shippingLabels = document.querySelectorAll(".shipping-option");
+
+        shippingLabels.forEach(label => {
+            label.addEventListener("click", () => {
+                shippingLabels.forEach(l => l.classList.remove("selected"));
+                label.classList.add("selected");
+                selectedShippingCost = Number(label.dataset.price);
+                updateTotals();
+            });
+        });
+
+        // ===== Payment method selection =====
+        const paymentLabels = document.querySelectorAll(".payment-option");
+        const cardDetails = document.getElementById("cardDetails");
+        const paypalDetails = document.getElementById("paypalDetails");
+
+        paymentLabels.forEach(label => {
+            label.addEventListener("click", () => {
+                paymentLabels.forEach(l => l.classList.remove("selected"));
+                label.classList.add("selected");
+
+                const isCard = label.dataset.method === "card";
+                cardDetails.style.display = isCard ? "block" : "none";
+                paypalDetails.style.display = isCard ? "none" : "block";
+            });
+        });
+
+       document.getElementById("reviewOrderBtn").addEventListener("click", () => {
+    const selectedShipping = document.querySelector(".shipping-option.selected");
+    const selectedPayment = document.querySelector(".payment-option.selected");
+
+    const shippingInfo = {
+        name: selectedShipping.querySelector(".option-name").textContent,
+        meta: selectedShipping.querySelector(".option-meta").textContent,
+        price: selectedShippingCost
+    };
+
+    const paymentMethod = selectedPayment.dataset.method;
+    let paymentInfo = { method: paymentMethod };
+
+    if (paymentMethod === "card") {
+        const cardInputs = document.querySelectorAll("#cardDetails input");
+        const cardNumber = cardInputs[1].value || "0000000000000000";
+        paymentInfo.nameOnCard = cardInputs[0].value || "Card Holder";
+        paymentInfo.last4 = cardNumber.slice(-4);
+    } else {
+        const paypalEmail = document.querySelector("#paypalDetails input").value || "your@paypal.com";
+        paymentInfo.email = paypalEmail;
+    }
+
+    localStorage.setItem("furnitureShippingInfo", JSON.stringify(shippingInfo));
+    localStorage.setItem("furniturePaymentInfo", JSON.stringify(paymentInfo));
+
+    window.location.href = "review.html";
+});
+
+        document.addEventListener("DOMContentLoaded", renderOrderSummary);
+    </script>
+</body>
+
+</html>

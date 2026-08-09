@@ -2177,3 +2177,248 @@ a.btn-checkout {
 .add-to-cart-btn.added {
     background: #2e7d32;
 }
+/* ================= SHIPPING & PAYMENT PAGE ================= */
+.payment-title {
+    margin-top: 36px;
+}
+
+.shipping-options {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eeeeee;
+}
+
+.shipping-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #eeeeee;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.shipping-option:last-child {
+    border-bottom: none;
+}
+
+.shipping-option.selected {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.option-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.option-left input[type="radio"] {
+    accent-color: #1a1a1a;
+    width: 15px;
+    height: 15px;
+}
+
+.shipping-option.selected .option-left input[type="radio"] {
+    accent-color: #ffffff;
+}
+
+.option-name {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.option-meta {
+    display: block;
+    font-size: 10px;
+    color: #999999;
+    margin-top: 3px;
+}
+
+.shipping-option.selected .option-meta {
+    color: #cccccc;
+}
+
+.option-price {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.option-price.free {
+    color: #4caf50;
+}
+
+.shipping-option.selected .option-price.free {
+    color: #7fd88a;
+}
+
+/* Payment method cards */
+.payment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.payment-option {
+    border: 1px solid #eeeeee;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.payment-option.selected {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.payment-option input[type="radio"] {
+    display: none;
+}
+
+.payment-option-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.payment-option-name {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.payment-option-badges {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.payment-option-desc {
+    font-size: 10.5px;
+    line-height: 1.6;
+    color: #999999;
+}
+
+.payment-option.selected .payment-option-desc {
+    color: #cccccc;
+}
+
+/* Card details form */
+.card-details-label {
+    font-size: 10px;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 14px;
+}
+
+#cardDetails .form-row {
+    margin-bottom: 18px;
+}
+
+#cardDetails .form-group input {
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 8px 0;
+    font-size: 12px;
+    width: 100%;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+}
+
+#cardDetails .form-group input:focus {
+    border-bottom-color: #1a1a1a;
+}
+
+
+/* ================= REVIEW PAGE ================= */
+.review-box {
+    border: 1px solid #1a1a1a;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.review-box.light {
+    background: #f7f7f7;
+    color: #1a1a1a;
+    border-color: #eeeeee;
+}
+
+.review-box-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.review-box-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-divider {
+    border: none;
+    border-top: 1px solid #333333;
+    margin: 16px 0;
+}
+
+.review-box.light .review-divider {
+    border-top-color: #dddddd;
+}
+
+.review-name {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.review-meta {
+    font-size: 10.5px;
+    color: #bbbbbb;
+    line-height: 1.6;
+}
+
+.review-box.light .review-meta {
+    color: #888888;
+}
+
+.review-edit-link {
+    color: #ffffff;
+    font-size: 13px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.review-box.light .review-edit-link {
+    color: #1a1a1a;
+}
+
+.review-shipping-price {
+    font-size: 11px;
+    font-weight: 700;
+    color: #7fd88a;
+}
+
+.payment-row {
+    align-items: center;
+}
+
+.payment-icon-badge {
+    width: 40px;
+    height: 28px;
+    background: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: #1a1a1a;
+    flex-shrink: 0;
+}
