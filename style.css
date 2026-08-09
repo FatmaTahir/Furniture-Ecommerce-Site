@@ -2422,3 +2422,31 @@ a.btn-checkout {
     color: #1a1a1a;
     flex-shrink: 0;
 }
+/* Shipping accordion info */
+.shipping-desc {
+    font-size: 11px;
+    color: #888888;
+    line-height: 1.6;
+    padding-top: 10px;
+}
+
+/* Reset filter buttons inside ALL PRODUCT accordions */
+.reset-category-btn,
+.reset-all-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1a1a1a;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: color 0.2s ease;
+}
+
+.reset-category-btn:hover,
+.reset-all-btn:hover {
+    color: #666666;
+}

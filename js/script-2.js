@@ -299,3 +299,38 @@ searchGrid.addEventListener("click", (e) => {
 });
 
 applyFilters();
+// ===== Reset Category (ALL PRODUCT under CATEGORY) =====
+const resetCategoryBtn = document.querySelector(".reset-category-btn");
+
+if (resetCategoryBtn) {
+    resetCategoryBtn.addEventListener("click", () => {
+        activeFilters.category = null;
+        searchbtns.forEach(b => b.classList.remove("active"));
+        applyFilters();
+    });
+}
+
+// ===== Reset All Filters (ALL PRODUCT under SHOP BY) =====
+const resetAllBtn = document.querySelector(".reset-all-btn");
+
+if (resetAllBtn) {
+    resetAllBtn.addEventListener("click", () => {
+        activeFilters.category = null;
+        activeFilters.material = null;
+        activeFilters.size = null;
+        activeFilters.onSale = false;
+        activeFilters.maxPrice = 2700;
+        sortMode = "default";
+
+        searchbtns.forEach(b => b.classList.remove("active"));
+        materialLis.forEach(l => l.classList.remove("active"));
+        sizeLis.forEach(l => l.classList.remove("active"));
+        onSaleBadge.classList.remove("active");
+        priceRange.value = 2700;
+        priceLabel.textContent = "$0 - $2700";
+        sortLabel.textContent = "Default";
+        sortMenuItems.forEach(i => i.classList.remove("active"));
+
+        applyFilters();
+    });
+}
