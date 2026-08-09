@@ -44,14 +44,10 @@
     </header>
 
     <main class="cart-page-main">
-
-        <!-- Title -->
         <div class="cart-hero">
             <h1 class="cart-page-title">REVIEW AND CONFIRMATION</h1>
             <p class="cart-page-subtitle">LOOKBACK ONE MORE TIME TO CONFIRM YOUR ADDRESS AND ALL YOUR PRODUCTS</p>
         </div>
-
-        <!-- Step Tracker -->
         <div class="cart-steps">
             <a href="cart.html" class="cart-step completed">
                 <div class="step-icon">
@@ -250,8 +246,6 @@
                 <span class="review-shipping-price">${shippingInfo.price ? `$${shippingInfo.price.toFixed(2)}` : "Free shipping"}</span>
             </div>
         `;
-
-        // ===== Render payment info box =====
         const paymentReviewBox = document.getElementById("paymentReviewBox");
 
         if (paymentInfo.method === "paypal") {
